@@ -1,8 +1,8 @@
 # Site settings
 title: "아고라 - Paul Graham 에세이 한국어 번역"
 description: "한국 PM, PO, 스타트업 창업자를 위한 Paul Graham 에세이 실행 번역 플랫폼"
-baseurl: ""
-url: "https://yourdomain.com"
+baseurl: "/YC"
+url: "https://arenga.github.io"
 lang: ko
 
 # Build settings
@@ -14,7 +14,7 @@ timezone: Asia/Seoul
 collections:
   essays:
     output: true
-    permalink: /essays/:categories/:title/
+    permalink: /essays/:title/
 
 # Defaults
 defaults:
