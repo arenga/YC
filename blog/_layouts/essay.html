@@ -3,6 +3,20 @@ layout: default
 ---
 
 <article class="essay">
+  <nav class="breadcrumb" aria-label="현재 위치">
+    <a href="{{ '/' | relative_url }}">홈</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ '/essays/' | relative_url }}">전체 에세이</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ '/' | relative_url }}?category={{ page.category | uri_escape }}">{{ site.category_names[page.category] | default: page.category }}</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ page.title }}</span>
+  </nav>
+
+  <div class="reading-progress" aria-hidden="true">
+    <span id="reading-progress-bar"></span>
+  </div>
+
   <div class="essay-header">
     <h1 class="essay-title">{{ page.title }}</h1>
     <div class="essay-meta">
@@ -67,6 +81,20 @@ layout: default
       li.appendChild(a);
       tocList.appendChild(li);
     });
+  })();
+
+  (function readingProgress() {
+    const bar = document.getElementById('reading-progress-bar');
+    if (!bar) return;
+    function update() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      bar.style.width = progress + '%';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   })();
 
   function copyLink() {

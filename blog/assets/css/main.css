@@ -35,12 +35,13 @@ body {
 /* Header */
 .site-header {
   border-bottom: 1px solid var(--color-border);
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
   position: sticky;
   top: 0;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   z-index: 100;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
 }
 
 .nav-container {
@@ -54,7 +55,7 @@ body {
 }
 
 .site-title {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--color-text);
   text-decoration: none;
@@ -90,7 +91,7 @@ body {
 .main-content {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 3rem;
+  padding: 2.25rem 1.25rem 3rem;
   min-height: calc(100vh - 200px);
 }
 
@@ -233,6 +234,48 @@ body {
   width: 100%;
 }
 
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--color-text-light);
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  padding: 0.15rem 0.3rem;
+  border-radius: 6px;
+}
+
+.breadcrumb a:hover {
+  color: var(--color-text);
+  background: var(--color-hover);
+}
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(227, 232, 240, 0.9);
+  border-radius: 999px;
+  overflow: hidden;
+  z-index: 200;
+}
+
+.reading-progress span {
+  display: block;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  transition: width 0.1s ease-out;
+}
+
 .essay-header {
   text-align: center;
   padding-bottom: 2rem;
@@ -273,9 +316,12 @@ body {
 /* Essay Content */
 .essay-content {
   font-family: var(--font-serif);
-  font-size: 1.06rem;
-  line-height: 1.8;
+  font-size: 1.08rem;
+  line-height: 1.85;
   color: var(--color-text);
+  text-wrap: pretty;
+  word-break: keep-all;
+  hyphens: auto;
 }
 
 .essay-content h2 {
@@ -284,6 +330,7 @@ body {
   margin: 2.5rem 0 1rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--color-border);
+  scroll-margin-top: 90px;
 }
 
 .essay-content h2:first-child {
@@ -296,10 +343,11 @@ body {
   font-family: var(--font-sans);
   font-size: 1.2rem;
   margin: 1.5rem 0 0.5rem;
+  scroll-margin-top: 90px;
 }
 
 .essay-content p {
-  margin: 1rem 0;
+  margin: 1.05rem 0;
 }
 
 .essay-content ul,
@@ -450,6 +498,10 @@ body {
 @media (max-width: 768px) {
   body {
     font-size: 16px;
+  }
+
+  .breadcrumb {
+    font-size: 0.85rem;
   }
 
   .hero-title {

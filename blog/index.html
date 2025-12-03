@@ -95,6 +95,17 @@ title: 홈
     });
   }
 
+  function applyQueryDefaults() {
+    const params = new URLSearchParams(window.location.search);
+    const catParam = params.get('category');
+    const diffParam = params.get('difficulty');
+    if (catParam) activeCategory = catParam;
+    if (diffParam) activeDifficulty = diffParam;
+    setActive(categoryFilters, activeCategory);
+    setActive(difficultyFilters, activeDifficulty);
+    filterEssays();
+  }
+
   categoryFilters.forEach(button => {
     button.setAttribute('aria-pressed', button.classList.contains('active'));
     button.addEventListener('click', () => {
@@ -112,4 +123,7 @@ title: 홈
       filterEssays();
     });
   });
+
+  applyQueryDefaults();
+  filterEssays();
 </script>

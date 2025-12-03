@@ -1,0 +1,36 @@
+---
+layout: default
+title: 전체 에세이
+permalink: /essays/
+---
+
+<section class="list-section">
+  <div class="section-header">
+    <div>
+      <p class="eyebrow">전체 에세이</p>
+      <h1>모든 번역본 한눈에 보기</h1>
+      <p class="muted">카테고리·난이도는 카드에 표시됩니다. 필터가 필요하면 홈의 탐색 섹션을 이용하세요.</p>
+    </div>
+    <div class="section-actions">
+      <a class="btn ghost" href="{{ '/' | relative_url }}">홈으로</a>
+    </div>
+  </div>
+
+  <div class="essays-grid">
+    {% assign sorted_essays = site.essays | sort: "title" %}
+    {% for essay in sorted_essays %}
+      <article class="essay-card">
+        <h3 class="essay-card-title">
+          <a href="{{ essay.url | relative_url }}">{{ essay.title }}</a>
+        </h3>
+        <div class="essay-card-meta">
+          <span class="category">{{ site.category_names[essay.category] | default: essay.category }}</span>
+          <span class="difficulty">{{ site.difficulty_levels[essay.difficulty] | default: essay.difficulty }}</span>
+        </div>
+        {% if essay.excerpt %}
+          <p class="essay-card-excerpt">{{ essay.excerpt | strip_html | truncate: 150 }}</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+</section>
