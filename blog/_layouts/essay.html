@@ -15,6 +15,14 @@ layout: default
     <a href="{{ page.url_original }}" class="original-link" target="_blank" rel="noopener">원문 보기 →</a>
   </div>
 
+  <nav class="toc" aria-label="본문 바로가기">
+    <div class="toc-header">
+      <p class="toc-title">본문 바로가기</p>
+      <p class="toc-hint">중간 소제목으로 바로 이동하세요.</p>
+    </div>
+    <ul id="toc-list"></ul>
+  </nav>
+
   <div class="essay-content">
     {{ content }}
   </div>
@@ -30,6 +38,37 @@ layout: default
 </article>
 
 <script>
+  (function buildToc() {
+    const headings = Array.from(document.querySelectorAll('.essay-content h2, .essay-content h3'));
+    const tocList = document.getElementById('toc-list');
+    if (!headings.length || !tocList) {
+      const toc = document.querySelector('.toc');
+      if (toc) toc.style.display = 'none';
+      return;
+    }
+
+    function slugify(text) {
+      return text
+        .toLowerCase()
+        .replace(/[^a-z0-9가-힣\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-');
+    }
+
+    headings.forEach((heading) => {
+      const text = heading.innerText.trim();
+      if (!text) return;
+      if (!heading.id) heading.id = slugify(text);
+      const li = document.createElement('li');
+      li.className = heading.tagName.toLowerCase() === 'h3' ? 'toc-item depth-2' : 'toc-item depth-1';
+      const a = document.createElement('a');
+      a.href = '#' + heading.id;
+      a.textContent = text;
+      li.appendChild(a);
+      tocList.appendChild(li);
+    });
+  })();
+
   function copyLink() {
     const url = window.location.href;
     navigator.clipboard.writeText(url).then(() => {

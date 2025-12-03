@@ -87,20 +87,28 @@ title: 홈
     });
   }
 
+  function setActive(buttons, value) {
+    buttons.forEach((b) => {
+      const isActive = b.dataset.filter === value;
+      b.classList.toggle('active', isActive);
+      b.setAttribute('aria-pressed', String(isActive));
+    });
+  }
+
   categoryFilters.forEach(button => {
+    button.setAttribute('aria-pressed', button.classList.contains('active'));
     button.addEventListener('click', () => {
-      categoryFilters.forEach(b => b.classList.remove('active'));
-      button.classList.add('active');
       activeCategory = button.dataset.filter;
+      setActive(categoryFilters, activeCategory);
       filterEssays();
     });
   });
 
   difficultyFilters.forEach(button => {
+    button.setAttribute('aria-pressed', button.classList.contains('active'));
     button.addEventListener('click', () => {
-      difficultyFilters.forEach(b => b.classList.remove('active'));
-      button.classList.add('active');
       activeDifficulty = button.dataset.filter;
+      setActive(difficultyFilters, activeDifficulty);
       filterEssays();
     });
   });

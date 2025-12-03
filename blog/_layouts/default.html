@@ -11,8 +11,12 @@
 <body>
   <header class="site-header">
     <nav class="nav-container">
-      <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
-      <button class="nav-close" onclick="window.history.back()">×</button>
+      <a href="{{ '/' | relative_url }}" class="site-title">아고라</a>
+      <div class="nav-links">
+        <a href="{{ '/' | relative_url }}">홈</a>
+        <a href="{{ '/' | relative_url }}#filters">카테고리/난이도</a>
+        <a href="{{ '/essays/' | relative_url }}">전체 에세이</a>
+      </div>
     </nav>
   </header>
 
