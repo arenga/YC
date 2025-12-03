@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +16,9 @@
         <a href="{{ '/' | relative_url }}">홈</a>
         <a href="{{ '/' | relative_url }}#filters">카테고리/난이도</a>
         <a href="{{ '/essays/' | relative_url }}">전체 에세이</a>
+      </div>
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false" aria-label="다크 모드 전환">🌙</button>
       </div>
     </nav>
   </header>
@@ -54,6 +57,37 @@
       window.addEventListener('scroll', toggle, { passive: true });
       btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
       toggle();
+    })();
+
+    (function themeToggle() {
+      const storageKey = 'agora-theme';
+      const root = document.documentElement;
+      const btn = document.getElementById('theme-toggle');
+
+      function applyTheme(theme) {
+        root.setAttribute('data-theme', theme);
+        localStorage.setItem(storageKey, theme);
+        if (btn) {
+          const isDark = theme === 'dark';
+          btn.setAttribute('aria-pressed', String(isDark));
+          btn.textContent = isDark ? '☀️' : '🌙';
+          btn.title = isDark ? '라이트 모드로' : '다크 모드로';
+        }
+      }
+
+      const preferred = (() => {
+        const saved = localStorage.getItem(storageKey);
+        if (saved === 'dark' || saved === 'light') return saved;
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      })();
+
+      applyTheme(preferred);
+      if (btn) {
+        btn.addEventListener('click', () => {
+          const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+        });
+      }
     })();
   </script>
 </body>
