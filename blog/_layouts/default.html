@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <nav class="nav-container">
       <a href="{{ '/' | relative_url }}" class="site-title">아고라</a>
       <div class="nav-links">
@@ -28,5 +28,33 @@
     <p>&copy; 2025 아고라. Paul Graham 에세이 한국어 번역.</p>
     <p>원문: <a href="https://paulgraham.com/" target="_blank" rel="noopener">paulgraham.com</a></p>
   </footer>
+
+  <button class="scroll-top" id="scroll-top" type="button" aria-label="맨 위로 이동">↑</button>
+
+  <script>
+    (function headerHideOnScroll() {
+      const header = document.getElementById('site-header');
+      if (!header) return;
+      let lastY = window.scrollY;
+      window.addEventListener('scroll', () => {
+        const currentY = window.scrollY;
+        const isScrollingDown = currentY > lastY && currentY > 80;
+        header.classList.toggle('hide', isScrollingDown);
+        lastY = currentY;
+      }, { passive: true });
+    })();
+
+    (function backToTop() {
+      const btn = document.getElementById('scroll-top');
+      if (!btn) return;
+      const toggle = () => {
+        if (window.scrollY > 400) btn.classList.add('show');
+        else btn.classList.remove('show');
+      };
+      window.addEventListener('scroll', toggle, { passive: true });
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      toggle();
+    })();
+  </script>
 </body>
 </html>
