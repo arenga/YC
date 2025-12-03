@@ -1,0 +1,38 @@
+{
+  "name": "yc",
+  "version": "1.0.0",
+  "description": "Paul Graham Essay Analysis for Korean PM/PO/Founders",
+  "main": "index.js",
+  "scripts": {
+    "1:extract": "tsx scripts/1-extract-links.ts",
+    "2:scrape": "tsx scripts/2-scrape-essays.ts",
+    "3:validate": "tsx scripts/3-validate-data.ts",
+    "4:analyze": "tsx scripts/4-analyze-essays.ts",
+    "5:organize": "tsx scripts/5-organize-files.ts",
+    "6:translate": "tsx scripts/6-translate-essays.ts",
+    "7:update-summaries": "tsx scripts/7-update-summaries-final.ts",
+    "8:newsletter": "tsx scripts/8-update-summaries-newsletter.ts",
+    "9:content-based": "tsx scripts/9-update-summaries-content-based.ts",
+    "10:api": "tsx scripts/10-update-summaries-with-api.ts",
+    "21:jekyll-convert": "tsx scripts/21-convert-to-jekyll.ts",
+    "jekyll:serve": "cd blog && bundle exec jekyll serve",
+    "jekyll:build": "cd blog && bundle exec jekyll build",
+    "all": "npm run 1:extract && npm run 2:scrape && npm run 3:validate && npm run 4:analyze && npm run 5:organize"
+  },
+  "keywords": ["paul-graham", "essays", "pm", "po", "product-management", "korean"],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.71.0",
+    "@executeautomation/playwright-mcp-server": "^1.0.6",
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.3",
+    "playwright": "^1.57.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  }
+}

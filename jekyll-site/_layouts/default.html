@@ -1,0 +1,45 @@
+---
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'ko' }}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {%- seo -%}
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="site-header">
+        <a class="brand" href="{{ '/' | relative_url }}">AGORA</a>
+        <nav class="nav-links">
+          <a href="{{ '/' | relative_url }}#filters">카테고리</a>
+          <a href="{{ '/' | relative_url }}#latest">최신 글</a>
+          <a href="{{ '/essays/' | relative_url }}">전체 보기</a>
+        </nav>
+        <div class="header-cta">
+          <a class="btn ghost" href="https://www.ycombinator.com/library" target="_blank" rel="noopener">YC Library</a>
+        </div>
+      </header>
+
+      <main class="site-main">
+        {{ content }}
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-meta">
+          <div>
+            <p class="eyebrow">아고라</p>
+            <p class="muted">Paul Graham 에세이를 한국 스타트업 실무 언어로 번역·재구성합니다.</p>
+          </div>
+          <div class="footer-links">
+            <a href="{{ '/essays/' | relative_url }}">전체 에세이</a>
+            <a href="https://paulgraham.com/articles.html" target="_blank" rel="noopener">원문 모음</a>
+            <a href="https://www.ycombinator.com/" target="_blank" rel="noopener">Y Combinator</a>
+          </div>
+        </div>
+        <p class="tiny muted">실행 번역 · 체크리스트 · DM 상담 CTA를 포함한 블로그 실험</p>
+      </footer>
+    </div>
+  </body>
+</html>

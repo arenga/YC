@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(cat:*)",
+      "Bash(node --version:*)",
+      "Bash(npm install:*)",
+      "Bash(sudo chown:*)",
+      "Bash(npm init:*)",
+      "Bash(npx playwright install:*)",
+      "Bash(tree -L 3:*)",
+      "Bash(if [ -f .env ])",
+      "Bash(then echo \"exists\")",
+      "Bash(else echo \"not exists\")",
+      "Bash(fi)",
+      "Bash(npm run:*)",
+      "Bash(node scripts/generate-full-analysis.js:*)",
+      "Bash(pip3 install:*)",
+      "Bash(tsx scripts/6-translate-sample.ts:*)",
+      "Bash(npx tsx:*)",
+      "Bash(xargs -I {} sh -c 'echo \"\"\"\"=== {} ===\"\"\"\" && head -25 {}')",
+      "Bash(head:*)",
+      "Bash(node -e:*)",
+      "Bash(test:*)",
+      "Bash(echo:*)",
+      "Bash(while read title)",
+      "Bash(do grep -l '^⏭️  스킵: $title')",
+      "Bash(done)",
+      "Bash(grep:*)",
+      "Bash(python3:*)",
+      "Bash(tee:*)",
+      "Bash(bundle install:*)",
+      "Bash(bundle config:*)",
+      "Bash(git init:*)",
+      "Bash(git branch:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,107 @@
+---
+layout: default
+title: 홈
+---
+
+<div class="home">
+  <section class="hero">
+    <h1 class="hero-title">아고라</h1>
+    <p class="hero-subtitle">Paul Graham 에세이를 한국 PM·PO·창업자 맥락으로 재해석한 실행형 자기계발 플랫폼</p>
+  </section>
+
+  <section class="filter-section">
+    <h2 class="section-title">에세이 탐색</h2>
+
+    <div class="filters">
+      <div class="filter-group">
+        <h3>카테고리</h3>
+        <div class="filter-tags" id="category-filters">
+          <button class="filter-tag active" data-filter="all">전체</button>
+          {% assign categories = site.essays | map: 'category' | uniq | sort %}
+          {% for category in categories %}
+          <button class="filter-tag" data-filter="{{ category }}">
+            {{ site.category_names[category] | default: category }}
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <h3>난이도</h3>
+        <div class="filter-tags" id="difficulty-filters">
+          <button class="filter-tag active" data-filter="all">전체</button>
+          {% assign difficulties = site.essays | map: 'difficulty' | uniq | sort %}
+          {% for difficulty in difficulties %}
+          <button class="filter-tag" data-filter="{{ difficulty }}">
+            {{ site.difficulty_levels[difficulty] | default: difficulty }}
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="essays-section">
+    <div class="essays-grid" id="essays-grid">
+      {% assign sorted_essays = site.essays | sort: 'title' %}
+      {% for essay in sorted_essays %}
+      <article class="essay-card" data-category="{{ essay.category }}" data-difficulty="{{ essay.difficulty }}">
+        <h3 class="essay-card-title">
+          <a href="{{ essay.url | relative_url }}">{{ essay.title }}</a>
+        </h3>
+        <div class="essay-card-meta">
+          <span class="category">{{ site.category_names[essay.category] | default: essay.category }}</span>
+          <span class="difficulty">{{ site.difficulty_levels[essay.difficulty] | default: essay.difficulty }}</span>
+        </div>
+        {% if essay.excerpt %}
+        <p class="essay-card-excerpt">{{ essay.excerpt | strip_html | truncate: 150 }}</p>
+        {% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+
+<script>
+  // Filter functionality
+  const categoryFilters = document.querySelectorAll('#category-filters .filter-tag');
+  const difficultyFilters = document.querySelectorAll('#difficulty-filters .filter-tag');
+  const essayCards = document.querySelectorAll('.essay-card');
+
+  let activeCategory = 'all';
+  let activeDifficulty = 'all';
+
+  function filterEssays() {
+    essayCards.forEach(card => {
+      const category = card.dataset.category;
+      const difficulty = card.dataset.difficulty;
+
+      const categoryMatch = activeCategory === 'all' || category === activeCategory;
+      const difficultyMatch = activeDifficulty === 'all' || difficulty === activeDifficulty;
+
+      if (categoryMatch && difficultyMatch) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  categoryFilters.forEach(button => {
+    button.addEventListener('click', () => {
+      categoryFilters.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+      activeCategory = button.dataset.filter;
+      filterEssays();
+    });
+  });
+
+  difficultyFilters.forEach(button => {
+    button.addEventListener('click', () => {
+      difficultyFilters.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+      activeDifficulty = button.dataset.filter;
+      filterEssays();
+    });
+  });
+</script>

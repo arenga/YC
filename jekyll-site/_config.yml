@@ -1,0 +1,55 @@
+title: "아고라 | YC 에세이 실행 번역"
+description: "Paul Graham 에세이를 한국 PM/창업자 맥락으로 재구성한 실행형 번역 블로그"
+url: "" # 배포 시 루트 도메인으로 교체
+baseurl: "" # 서브 디렉터리에 배포하면 /subdir 형태로 설정
+permalink: pretty
+markdown: kramdown
+highlighter: rouge
+
+collections:
+  essays:
+    output: true
+    permalink: /essays/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: "essays"
+    values:
+      layout: essay
+      lang: ko
+      toc: true
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default
+      lang: ko
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+
+cta:
+  checklist_url: ""
+  dm_url: ""
+
+exclude:
+  - node_modules
+  - scripts
+  - data
+  - essays
+  - logs
+  - dist
+  - .DS_Store
+  - package.json
+  - package-lock.json
+  - tsconfig.json
+  - README.md
+  - PRD.md
+  - SPEC_POLICY.md
+  - SUMMARY.md
+  - GETTING-STARTED.md
+
+sass:
+  style: compressed

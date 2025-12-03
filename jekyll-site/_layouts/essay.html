@@ -1,0 +1,65 @@
+---
+layout: default
+---
+<article class="essay-page">
+  <div class="essay-hero">
+    <p class="eyebrow">{{ page.category }} · {{ page.difficulty }}</p>
+    <h1>{{ page.title }}</h1>
+    {% if page.summary %}
+      <p class="lead">{{ page.summary }}</p>
+    {% endif %}
+    <div class="pill-row">
+      <span class="pill">{{ page.difficulty }}</span>
+      <span class="pill alt">{{ page.category }}</span>
+    </div>
+    <div class="hero-actions">
+      {% if page.original_url %}
+        <a class="btn ghost" href="{{ page.original_url }}" target="_blank" rel="noopener">영문 원문</a>
+      {% endif %}
+      <a class="btn primary" href="{{ '/' | relative_url }}">전체 목록으로</a>
+    </div>
+  </div>
+
+  <div class="essay-meta-grid">
+    <div>
+      <p class="eyebrow">출판</p>
+      <p>{{ page.published | default: "N/A" }}</p>
+    </div>
+    <div>
+      <p class="eyebrow">원문 링크</p>
+      {% if page.original_url %}
+        <a class="muted" href="{{ page.original_url }}" target="_blank" rel="noopener">{{ page.original_url }}</a>
+      {% else %}
+        <p class="muted">제공되지 않음</p>
+      {% endif %}
+    </div>
+    <div>
+      <p class="eyebrow">카테고리</p>
+      <p>{{ page.category }}</p>
+    </div>
+  </div>
+
+  <div class="essay-content">
+    {{ content }}
+  </div>
+
+  {% assign checklist_url = page.checklist_url | default: site.cta.checklist_url %}
+  {% assign dm_url = page.dm_url | default: site.cta.dm_url %}
+  {% if checklist_url or dm_url %}
+    <div id="action-checklist" class="cta-block">
+      <div>
+        <p class="eyebrow">실행 CTA</p>
+        <h3>체크리스트로 바로 실행하거나 DM 상담을 열어보세요.</h3>
+        <p class="muted">`_config.yml`이나 각 문서의 front matter에 링크만 설정하면 블로그 CTA가 활성화됩니다.</p>
+      </div>
+      <div class="cta-buttons">
+        {% if checklist_url %}
+          <a class="btn primary" href="{{ checklist_url }}">체크리스트 열기</a>
+        {% endif %}
+        {% if dm_url %}
+          <a class="btn ghost" href="{{ dm_url }}">DM 상담</a>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+</article>

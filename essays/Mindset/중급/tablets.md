@@ -1,0 +1,40 @@
+# Tablets
+**카테고리**: Mindset
+**난이도**: 중급
+**출판일**: N/A
+**원문**: https://paulgraham.com/tablets.html
+---
+## 요약 (Summary)
+
+🎯 태블릿이 컴퓨팅의 미래일까요?
+
+✨ 핵심 내용 요약
+
+2010년 iPad 출시 직후, Paul Graham은 태블릿의 의미를 분석합니다. 많은 사람들이 "큰 아이폰일 뿐"이라고 무시했습니다. 하지만 Paul은 다르게 봤습니다: 태블릿은 컴퓨팅의 미래를 보여줍니다.
+
+왜일까요? 태블릿은 "컴퓨터처럼 느껴지지 않기" 때문입니다. 키보드도, 마우스도, 복잡한 파일 시스템도 없습니다. 그냥 작동합니다. 이것이 대부분의 사람들이 원하는 것입니다. 컴퓨터는 점점 더 단순해지고 있습니다. Microsoft Office가 아니라 앱. Windows Explorer가 아니라 터치. 태블릿은 "post-PC" 시대의 시작입니다. 그리고 그것은 엄청난 기회입니다.
+
+**핵심 포인트**
+• 태블릿은 단순함의 승리입니다
+• 대부분의 사람들은 "컴퓨터"를 원하지 않습니다
+• Post-PC 시대는 새로운 기회입니다
+
+🚀 오늘 바로 실천해볼 한 가지
+당신의 제품에서 "컴퓨터스러운" 복잡함을 제거할 수 있는 부분을 찾아보세요.
+
+---
+
+## 한국어 번역 (Korean Translation)
+
+2010년 12월최근 아이폰, 아이패드, 그리고 그에 상응하는 안드로이드를 구동하는 것들에 대한 총칭이 없다는 것이 얼마나 불편한지 생각하고 있었습니다.일반적인 용어에 가장 가까운 것은 "모바일 장치"인 것 같지만 (a) 모든 휴대폰에 적용되며 (b) iPad의 특징을 실제로 포착하지는 않습니다. 몇 초 후에 우리가 이것을 태블릿이라고 부르게 될 것이라는 생각이 들었습니다.우리가 이를 "모바일 장치"라고 부르는 유일한 이유는 iPhone이 iPad보다 앞서기 때문입니다.아이패드가 먼저 나왔다면 우리는 아이폰을 휴대폰으로 생각하지 않았을 것이다.우리는 그것을 귀에 쏙 들어갈 만큼 작은 태블릿이라고 생각합니다. iPhone은 휴대폰이라기보다는 휴대폰을 대체하는 제품입니다.이는 공통 패턴이 될 초기 사례이기 때문에 중요한 차이점입니다.우리 주변의 대부분은 아니지만 대부분의 특수 목적 개체가 태블릿에서 실행되는 앱으로 대체될 것입니다. 이는 GPS, 음악 플레이어, 카메라와 같은 경우에 이미 분명합니다.하지만 얼마나 많은 것들이 교체될지 보면 사람들이 놀랄 것 같아요.우리는 열쇠를 교체하는 한 스타트업에 자금을 지원했습니다.글꼴 크기를 쉽게 변경할 수 있다는 사실은 iPad가 돋보기 안경을 효과적으로 대체한다는 것을 의미합니다.가속도계를 사용하여 몇 가지 영리한 트릭을 사용하면 욕실 저울도 대체할 수 있다고 해도 놀라지 않을 것입니다. 단일 장치에서 소프트웨어로 작업을 수행하는 이점은 너무 커서 소프트웨어로 전환할 수 있는 모든 것이 그렇게 될 것입니다.따라서 향후 몇 년 동안 스타트업을 위한 좋은 방법은 사람들이 아직 깨닫지 못한 것들이 태블릿 앱으로 인해 불필요해질 수 있는지 주위를 둘러보는 것입니다. 1938년 Buckminster Fuller는 물리적 기계가 현재 소프트웨어라고 부르는 것으로 대체되는 경향이 증가하는 것을 설명하기 위해 임시화라는 용어를 만들었습니다.태블릿이 세계를 장악하게 되는 이유는 스티브 잡스와 회사가 산업 디자인의 마법사이기 때문이 아니라, 그들의 뒤에 이러한 힘이 있기 때문입니다.iPhone과 iPad는 임시화가 많은 새로운 영역으로 유입될 수 있는 구멍을 효과적으로 뚫었습니다.기술의 역사를 공부한 사람이라면 그 힘의 힘을 과소평가하고 싶지 않을 것입니다. 나는 애플이 이 힘을 바탕으로 가질 수 있는 힘이 걱정됩니다.나는 80년대와 90년대 마이크로소프트 시대처럼 클라이언트 단일 문화의 또 다른 시대를 보고 싶지 않습니다.그러나 임시화가 태블릿 확산을 이끄는 주요 원동력 중 하나라면 이는 Apple과 경쟁할 수 있는 방법을 제시합니다. 즉, 더 나은 플랫폼이 되는 것입니다. Apple 태블릿에 가속도계가 있다는 것은 훌륭한 일임이 밝혀졌습니다.개발자들은 Apple이 결코 상상할 수 없었던 방식으로 가속도계를 사용해 왔습니다.그게 플랫폼의 특성이죠.도구의 용도가 다양할수록 사람들이 도구를 어떻게 사용할지 예측할 수 없습니다.따라서 태블릿 제조업체는 생각해야 합니다. 거기에 무엇을 더 넣을 수 있을까요?하드웨어뿐만 아니라 소프트웨어도 그렇습니다.개발자에게 또 무엇에 대한 액세스 권한을 부여할 수 있나요?해커에게 1인치만 주면 그들은 1마일을 데려갈 것입니다.초안을 읽어주신 Sam Altman, Paul Buchheit, Jessica Livingston, Robert Morris에게 감사드립니다.
+
+---
+
+## 원문 (Original Essay)
+
+December 2010I was thinking recently how inconvenient it was not to have a general term for iPhones, iPads, and the corresponding things running Android. The closest to a general term seems to be "mobile devices," but that (a) applies to any mobile phone, and (b) doesn't really capture what's distinctive about the iPad.After a few seconds it struck me that what we'll end up calling these things is tablets. The only reason we even consider calling them "mobile devices" is that the iPhone preceded the iPad. If the iPad had come first, we wouldn't think of the iPhone as a phone; we'd think of it as a tablet small enough to hold up to your ear.The iPhone isn't so much a phone as a replacement for a phone. That's an important distinction, because it's an early instance of what will become a common pattern. Many if not most of the special-purpose objects around us are going to be replaced by apps running on tablets.This is already clear in cases like GPSes, music players, and cameras. But I think it will surprise people how many things are going to get replaced. We funded one startup that's replacing keys. The fact that you can change font sizes easily means the iPad effectively replaces reading glasses. I wouldn't be surprised if by playing some clever tricks with the accelerometer you could even replace the bathroom scale.The advantages of doing things in software on a single device are so great that everything that can get turned into software will. So for the next couple years, a good recipe for startups will be to look around you for things that people haven't realized yet can be made unnecessary by a tablet app.In 1938 Buckminster Fuller coined the term ephemeralization to describe the increasing tendency of physical machinery to be replaced by what we would now call software. The reason tablets are going to take over the world is not (just) that Steve Jobs and Co are industrial design wizards, but because they have this force behind them. The iPhone and the iPad have effectively drilled a hole that will allow ephemeralization to flow into a lot of new areas. No one who has studied the history of technology would want to underestimate the power of that force.I worry about the power Apple could have with this force behind them. I don't want to see another era of client monoculture like the Microsoft one in the 80s and 90s. But if ephemeralization is one of the main forces driving the spread of tablets, that suggests a way to compete with Apple: be a better platform for it.It has turned out to be a great thing that Apple tablets have accelerometers in them. Developers have used the accelerometer in ways Apple could never have imagined. That's the nature of platforms. The more versatile the tool, the less you can predict how people will use it. So tablet makers should be thinking: what else can we put in there? Not merely hardware, but software too. What else can we give developers access to? Give hackers an inch and they'll take you a mile. Thanks to Sam Altman, Paul Buchheit, Jessica Livingston, and Robert Morris for reading drafts of this.
+
+---
+
+_분석일: 2025. 11. 29._
+_수집일: 2025. 11. 28._

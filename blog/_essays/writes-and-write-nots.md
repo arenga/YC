@@ -1,0 +1,43 @@
+---
+layout: essay
+title: "Writes and Write-Nots"
+category: Mindset
+difficulty: 중급
+year: 
+url_original: "https://paulgraham.com/writes.html"
+---
+
+## 요약 (Summary)
+
+🎯 글을 쓰는 사람과 쓰지 않는 사람의 차이
+
+✨ 핵심 내용 요약
+
+Paul Graham은 글쓰기 능력이 점점 더 중요한 경쟁력이 되고 있다고 말합니다. 과거에는 글쓰기가 특정 직업(작가, 기자)의 전유물이었지만, 이제는 모든 지식 노동자에게 필수 기술이 되었습니다. 이메일, 보고서, 제안서, 블로그 등 우리는 매일 글을 씁니다.
+
+문제는 글을 "쓸 수 있는 사람"과 "못 쓰는 사람" 사이의 격차가 점점 벌어지고 있다는 것입니다. 글을 잘 쓰는 사람은 자신의 생각을 명확하게 전달하고, 다른 사람을 설득하고, 기회를 만들어냅니다. 반면 글을 못 쓰는 사람은 아무리 좋은 아이디어가 있어도 전달하지 못합니다. 다행히 글쓰기는 연습으로 향상할 수 있습니다.
+
+**핵심 포인트**
+• 글쓰기는 이제 모든 지식 노동자의 필수 기술입니다
+• 글을 잘 쓰는 사람과 못 쓰는 사람의 격차가 벌어지고 있습니다
+• 글쓰기는 연습으로 향상할 수 있습니다
+
+🚀 오늘 바로 실천해볼 한 가지
+오늘부터 매일 15분 동안 생각을 글로 정리하는 습관을 만들어보세요.
+
+---
+
+## 한국어 번역 (Korean Translation)
+
+2024년 10월나는 보통 기술에 대해 예측하는 것을 꺼려하지만 이것에 대해서는 상당히 확신합니다. 수십 년 안에 글을 쓸 수 있는 사람이 많지 않을 것입니다. 작가라면 배울 수 있는 가장 이상한 것 중 하나는 글쓰기에 어려움을 겪는 사람이 얼마나 많다는 것입니다.의사들은 점을 걱정하는 사람이 얼마나 많은지 알고 있습니다.컴퓨터 설정을 잘하는 사람들은 그렇지 않은 사람들이 얼마나 많은지 압니다.작가들은 글쓰기에 도움이 필요한 사람이 얼마나 많은지 알고 있습니다. 많은 사람들이 글쓰기에 어려움을 겪는 이유는 글쓰기가 근본적으로 어렵기 때문입니다.글을 잘 쓰려면 명확하게 생각해야 하며, 명확하게 생각하는 것은 어렵습니다. 그러나 글쓰기는 많은 직업에 널리 퍼져 있으며, 그 직업이 명성이 높을수록 더 많은 글쓰기를 요구하는 경향이 있습니다. 이 두 가지 강력한 반대 세력, 즉 글쓰기에 대한 널리 퍼진 기대와 글쓰기에 대한 환원할 수 없는 어려움은 엄청난 압력을 만들어냅니다.저명한 교수들이 표절을 시도하는 경우가 종종 나타나는 이유도 바로 이 때문이다.이 사건에서 나에게 가장 놀라운 점은 도난의 사소함입니다.그들이 훔치는 것은 일반적으로 가장 평범한 상용구입니다. 글을 쓰는 데 절반이라도 능숙한 사람이라면 전혀 노력하지 않고도 얻을 수 있는 종류의 것입니다.이는 그들이 글을 쓰는 능력이 절반도 되지 않았다는 것을 의미합니다. 최근까지 이러한 반대 세력에 의해 생성된 압력에 대한 편리한 탈출 밸브가 없었습니다.JFK처럼 누군가에게 돈을 주고 글을 쓰거나 MLK처럼 표절할 수도 있지만, 단어를 사거나 훔칠 수 없다면 스스로 글을 써야 했습니다.그 결과 글을 쓸 것으로 예상되는 거의 모든 사람이 글을 쓰는 방법을 배워야 했습니다. 더 이상은 아닙니다.AI가 이 세상을 열었습니다.글쓰기에 대한 압력이 거의 모두 사라졌습니다.학교와 직장 모두에서 AI가 이 작업을 수행하도록 할 수 있습니다. 결과적으로 세상은 쓰기와 쓰기 안함으로 나누어질 것입니다.아직 글을 쓸 수 있는 사람이 있을 것이다.우리 중 일부는 그것을 좋아합니다.하지만 글을 잘 쓰는 사람과 글을 전혀 쓰지 못하는 사람의 중간지대는 사라질 것이다.좋은 작가, 괜찮은 작가, 글을 못 쓰는 사람 대신에 좋은 작가와 글을 못 쓰는 사람만 있을 거에요. 그게 그렇게 나쁜가요?기술이 쓸모없게 되면 기술도 사라지는 것이 흔한 일이 아닌가?대장장이도 많이 남지 않았고 문제될 것 같지도 않네요.네, 안좋습니다.그 이유는 앞서 언급한 것입니다. 글쓰기는 생각하는 것입니다.사실 글로만 할 수 있는 생각이 있거든요.이 점을 Leslie Lamport보다 더 잘 만들 수는 없습니다. 글을 쓰지 않고 생각만 한다면 자신이 생각하고 있다고만 생각할 것입니다.그래서 쓰기와 쓰기 안함으로 나누어진 세상은 생각보다 더 위험합니다.생각하고 생각하지 않는 세상이 될 것입니다.나는 내가 어느 반에 속하고 싶은지 알고 있고 당신도 그럴 것이라고 장담합니다. 이러한 상황은 전례가 없는 일이 아닙니다.산업화 이전 시대에는 대부분의 사람들의 직업이 그들을 강하게 만들었습니다.이제 강해지고 싶다면 운동을 하세요.그래서 여전히 강한 사람이 있지만, 강한 사람이 되겠다고 선택한 사람만 있습니다. 글쓰기도 마찬가지일 것입니다.여전히 똑똑한 사람들이 있을 것이지만 똑똑한 사람들이 되기로 선택한 사람들만 있을 것입니다. 초안을 읽어주신 Jessica Livingston, Ben Miller 및 Robert Morris에게 감사드립니다.
+
+---
+
+## 원문 (Original Essay)
+
+October 2024I'm usually reluctant to make predictions about technology, but I feel fairly confident about this one: in a couple decades there won't be many people who can write.One of the strangest things you learn if you're a writer is how many people have trouble writing. Doctors know how many people have a mole they're worried about; people who are good at setting up computers know how many people aren't; writers know how many people need help writing.The reason so many people have trouble writing is that it's fundamentally difficult. To write well you have to think clearly, and thinking clearly is hard.And yet writing pervades many jobs, and the more prestigious the job, the more writing it tends to require.These two powerful opposing forces, the pervasive expectation of writing and the irreducible difficulty of doing it, create enormous pressure. This is why eminent professors often turn out to have resorted to plagiarism. The most striking thing to me about these cases is the pettiness of the thefts. The stuff they steal is usually the most mundane boilerplate — the sort of thing that anyone who was even halfway decent at writing could turn out with no effort at all. Which means they're not even halfway decent at writing.Till recently there was no convenient escape valve for the pressure created by these opposing forces. You could pay someone to write for you, like JFK, or plagiarize, like MLK, but if you couldn't buy or steal words, you had to write them yourself. And as a result nearly everyone who was expected to write had to learn how.Not anymore. AI has blown this world open. Almost all pressure to write has dissipated. You can have AI do it for you, both in school and at work.The result will be a world divided into writes and write-nots. There will still be some people who can write. Some of us like it. But the middle ground between those who are good at writing and those who can't write at all will disappear. Instead of good writers, ok writers, and people who can't write, there will just be good writers and people who can't write.Is that so bad? Isn't it common for skills to disappear when technology makes them obsolete? There aren't many blacksmiths left, and it doesn't seem to be a problem.Yes, it's bad. The reason is something I mentioned earlier: writing is thinking. In fact there's a kind of thinking that can only be done by writing. You can't make this point better than Leslie Lamport did: If you're thinking without writing, you only think you're thinking. So a world divided into writes and write-nots is more dangerous than it sounds. It will be a world of thinks and think-nots. I know which half I want to be in, and I bet you do too.This situation is not unprecedented. In preindustrial times most people's jobs made them strong. Now if you want to be strong, you work out. So there are still strong people, but only those who choose to be.It will be the same with writing. There will still be smart people, but only those who choose to be.Thanks to Jessica Livingston, Ben Miller, and Robert Morris for reading drafts of this.
+
+---
+
+_분석일: 2025. 11. 29._
+_수집일: 2025. 11. 28._

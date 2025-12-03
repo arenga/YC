@@ -1,0 +1,55 @@
+---
+layout: essay
+title: "Change Your Name"
+category: Mindset
+difficulty: 중급
+year: 
+url_original: "https://paulgraham.com/name.html"
+---
+
+## 요약 (Summary)
+
+🎯 이름을 바꾸는 게 그렇게 중요할까요?
+
+✨ 핵심 내용 요약
+
+Paul Graham의 조언: 회사 이름이 마음에 안 들면, **지금 당장 바꾸세요.**
+
+많은 창업자들이 생각합니다: "나중에 성공하면 바꿀게요." 틀렸습니다. 나중일수록 바꾸기 어렵습니다.
+
+좋은 이름의 조건:
+1. 기억하기 쉽습니다
+2. 말하기 쉽습니다
+3. 철자가 명확합니다
+4. 도메인을 살 수 있습니다
+
+나쁜 이름이 치명적일까요? 꼭 그렇진 않습니다. 하지만 좋은 이름은 확실히 도움이 됩니다. 그리고 바꾸는 건 초기에만 쉽습니다.
+
+실제 사례: Reddit은 원래 다른 이름이었습니다. BackRub도 나중에 Google로 바꿨습니다. 초기에 바꾼 덕분에 큰 혼란 없었습니다.
+
+**핵심 포인트**
+• 나쁜 이름은 바꾸세요 - 빠를수록 좋습니다
+• 좋은 이름: 기억하기 쉽고, 말하기 쉽고, 철자가 명확합니다
+• "나중에 바꾸지"는 거의 일어나지 않습니다
+
+🚀 오늘 바로 실천해볼 한 가지
+당신의 제품/회사 이름을 낯선 사람에게 말해보세요. 한 번에 이해하고 철자를 쓸 수 있나요? 아니면 바꿀 때입니다.
+
+---
+
+## 한국어 번역 (Korean Translation)
+
+2015년 8월X라는 미국 스타트업이 있고 x.com이 없다면 아마도 이름을 바꿔야 할 것입니다. 그 이유는 단지 사람들이 당신을 찾을 수 없기 때문만은 아닙니다.특히 모바일 앱을 사용하는 회사의 경우 올바른 도메인 이름을 갖는 것이 사용자 확보에 있어 예전만큼 중요하지 않습니다.귀하의 이름에 .com이 없으면 문제는 그것이 약점을 나타내는 것입니다.귀하의 평판이 귀하보다 앞서지 않을 정도로 규모가 크지 않다면, 한계 도메인은 귀하가 한계 회사임을 암시합니다.(Stripe에서 알 수 있듯이) x.com이 자신이 하는 일과 아무런 관련이 없더라도 강점을 나타내는 신호입니다. 훌륭한 창업자라도 이에 대해 부인할 수 있습니다.그들의 거부는 두 가지 매우 강력한 힘, 즉 정체성과 상상력 부족에서 비롯됩니다. 창립자들은 X가 바로 우리라고 생각합니다.이만큼 좋은 이름은 없습니다.둘 다 거짓입니다. 문제에서 한 걸음 물러나 첫 번째 문제를 해결할 수 있습니다.회사 이름을 다른 이름으로 지정했다고 상상해 보세요.만약 그랬다면 분명히 당신은 현재의 이름과 마찬가지로 그 이름에도 애착을 가질 것입니다.현재 이름으로 바꾸는 아이디어는 혐오스러워 보일 것입니다.[1]당신의 현재 이름에는 본질적으로 좋은 것이 하나도 없습니다.그것에 대한 당신의 거의 모든 애착은 그것이 당신에게 애착을 갖는 데서 비롯됩니다.[2]부정의 두 번째 원인인 다른 잠재적인 이름을 생각하지 못하는 것을 무력화하는 방법은 이름 지정에 능숙하지 않다는 것을 인정하는 것입니다.명명은 훌륭한 창업자가 되기 위해 필요한 기술과는 완전히 별개의 기술입니다.당신은 훌륭한 스타트업 창업자가 될 수 있지만 회사의 이름을 생각하는 데 절망적일 수 있습니다. 일단 당신이 그것을 인정하고 나면 당신은 당신을 부를 수 있는 다른 것이 없다고 믿지 않게 됩니다.그 만큼 좋거나 더 나은 다른 잠재적인 이름이 많이 있습니다.당신은 그것들을 생각할 수 없습니다. 그것들을 어떻게 찾나요?한 가지 대답은 자신이 잘 못하는 문제를 해결하는 기본 방법입니다. 이름을 생각할 수 있는 다른 사람을 찾으세요.그러나 회사 이름에는 또 다른 접근 방식이 가능합니다.분명히 나쁜 이름이 아닌 거의 모든 단어 또는 단어 쌍은 충분히 좋은 이름이며, 그러한 도메인의 수가 너무 많아서 값싸거나 심지어 사용되지 않는 도메인도 많이 찾을 수 있습니다.그러니 목록을 작성하고 구매해 보세요.이것이 바로 Stripe이 한 일입니다.(그들의 검색 결과는 Parse의 친구들이 사용했던parse.com을 찾았습니다.) 회사 이름 지정이 스타트업에서 필요한 다른 기술과 직교하는 독특한 기술이라는 것을 제가 아는 이유는 제가 그것을 가지고 있기 때문입니다.내가 YC를 운영하면서 스타트업과 더 많은 업무 시간을 보냈을 때 나는 종종 그들이 새로운 이름을 찾는 데 도움을 주곤 했습니다.80%의 시간 동안 우리는 20분의 근무 시간 동안 적어도 하나의 좋은 이름을 찾을 수 있었습니다. 이제 근무 시간에는 회사가 무엇을 하고 있는지와 같은 더 중요한 질문에 집중해야 합니다.이름을 바꿔야 할 때를 알려줍니다.그러나 나는 그들을 사로잡는 세력의 힘을 알고 있으므로 대부분이 듣지 않을 것임을 알고 있습니다.[3]물론 이름에 .com이 없어도 성공한 스타트업의 예가 있습니다.수많은 실수에도 불구하고 성공한 스타트업이 있습니다.그러나 이 실수는 대부분의 실수보다 변명의 여지가 적습니다.문제를 인정할 만큼 충분한 규율을 갖고 있다면 며칠 안에 고칠 수 있는 문제입니다. 가치 평가 기준 상위 20개 YC 회사 중 100%가 이름이 .com입니다.상위 50개 중 94%가 그렇습니다.그러나 현재 배치에 포함된 회사 중 66%만이 이름에 .com이 있습니다.이는 어떤 식으로든 나머지 대부분에게 앞으로 교훈이 있다는 것을 의미합니다.참고[1] 그런데 이 사고 실험은 국적과 종교에도 적용됩니다.[2]당신의 정체성의 일부가 된 이름에 대한 당신의 선호는 무시하기 쉬운 직접적으로 나타나는 것이 아니라, 그 본질적인 특성에 대한 그럴듯한 믿음의 집합으로 나타납니다.(이것은 국적과 종교에도 해당됩니다.)[3] 때때로 창업자들은 자신의 이름에 해당하는 .com이 없다는 것이 문제라는 것을 알지만, 판매용이라는 증거가 없음에도 불구하고 그것을 구입할 수 있을 것이라는 믿음으로 한 단계 나중에 망상에 빠지게 됩니다.소유자가 아닌 한 도메인이 판매용이라고 믿지 마십시오.
+
+이미 당신에게 요구 가격을 말한 것처럼.초안을 읽어주신 Sam Altman, Jessica Livingston, Geoff Ralston에게 감사드립니다.
+
+---
+
+## 원문 (Original Essay)
+
+August 2015If you have a US startup called X and you don't have x.com, you should probably change your name.The reason is not just that people can't find you. For companies with mobile apps, especially, having the right domain name is not as critical as it used to be for getting users. The problem with not having the .com of your name is that it signals weakness. Unless you're so big that your reputation precedes you, a marginal domain suggests you're a marginal company. Whereas (as Stripe shows) having x.com signals strength even if it has no relation to what you do.Even good founders can be in denial about this. Their denial derives from two very powerful forces: identity, and lack of imagination.X is what we are, founders think. There's no other name as good. Both of which are false.You can fix the first by stepping back from the problem. Imagine you'd called your company something else. If you had, surely you'd be just as attached to that name as you are to your current one. The idea of switching to your current name would seem repellent. [1]There's nothing intrinsically great about your current name. Nearly all your attachment to it comes from it being attached to you. [2]The way to neutralize the second source of denial, your inability to think of other potential names, is to acknowledge that you're bad at naming. Naming is a completely separate skill from those you need to be a good founder. You can be a great startup founder but hopeless at thinking of names for your company.Once you acknowledge that, you stop believing there is nothing else you could be called. There are lots of other potential names that are as good or better; you just can't think of them.How do you find them? One answer is the default way to solve problems you're bad at: find someone else who can think of names. But with company names there is another possible approach. It turns out almost any word or word pair that is not an obviously bad name is a sufficiently good one, and the number of such domains is so large that you can find plenty that are cheap or even untaken. So make a list and try to buy some. That's what Stripe did. (Their search also turned up parse.com, which their friends at Parse took.)The reason I know that naming companies is a distinct skill orthogonal to the others you need in a startup is that I happen to have it. Back when I was running YC and did more office hours with startups, I would often help them find new names. 80% of the time we could find at least one good name in a 20 minute office hour slot.Now when I do office hours I have to focus on more important questions, like what the company is doing. I tell them when they need to change their name. But I know the power of the forces that have them in their grip, so I know most won't listen. [3]There are of course examples of startups that have succeeded without having the .com of their name. There are startups that have succeeded despite any number of different mistakes. But this mistake is less excusable than most. It's something that can be fixed in a couple days if you have sufficient discipline to acknowledge the problem.100% of the top 20 YC companies by valuation have the .com of their name. 94% of the top 50 do. But only 66% of companies in the current batch have the .com of their name. Which suggests there are lessons ahead for most of the rest, one way or another. Notes[1] Incidentally, this thought experiment works for nationality and religion too.[2] The liking you have for a name that has become part of your identity manifests itself not directly, which would be easy to discount, but as a collection of specious beliefs about its intrinsic qualities. (This too is true of nationality and religion as well.)[3] Sometimes founders know it's a problem that they don't have the .com of their name, but delusion strikes a step later in the belief that they'll be able to buy it despite having no evidence it's for sale. Don't believe a domain is for sale unless the owner has already told you an asking price. Thanks to Sam Altman, Jessica Livingston, and Geoff Ralston for reading drafts of this.
+
+---
+
+_분석일: 2025. 11. 29._
+_수집일: 2025. 11. 28._

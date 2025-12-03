@@ -1,0 +1,63 @@
+# Site settings
+title: "아고라 - Paul Graham 에세이 한국어 번역"
+description: "한국 PM, PO, 스타트업 창업자를 위한 Paul Graham 에세이 실행 번역 플랫폼"
+baseurl: ""
+url: "https://yourdomain.com"
+lang: ko
+
+# Build settings
+markdown: kramdown
+permalink: /:categories/:title/
+timezone: Asia/Seoul
+
+# Collections
+collections:
+  essays:
+    output: true
+    permalink: /essays/:categories/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "essays"
+    values:
+      layout: "essay"
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - scripts/
+  - data/
+
+# Plugins
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Category names in Korean
+category_names:
+  Mindset: "마인드셋"
+  Product: "프로덕트"
+  Go-to-Market: "Go-to-Market"
+  Fundraising: "펀드레이징"
+  Operations & Execution: "운영 & 실행"
+  Productivity & Efficiency: "생산성 & 효율성"
+
+# Difficulty levels in Korean
+difficulty_levels:
+  초급: "입문"
+  중급: "중급"
+  고급: "고급"

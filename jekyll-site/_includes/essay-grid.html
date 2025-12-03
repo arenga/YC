@@ -1,0 +1,21 @@
+{% assign sorted_essays = site.essays | sort: "title" %}
+{% if sorted_essays == empty %}
+  <p class="muted empty-state">
+    아직 변환된 에세이가 없습니다. 루트에서 <code>npm run jekyll:prepare</code>를 실행해 Jekyll용 컬렉션을 생성하세요.
+  </p>
+{% endif %}
+<div class="essay-grid" id="{{ include.id | default: 'essay-grid' }}">
+  {% for essay in sorted_essays %}
+    <article class="essay-card" data-category="{{ essay.category_slug }}" data-difficulty="{{ essay.difficulty_slug }}">
+      <p class="eyebrow">{{ essay.category }} · {{ essay.difficulty }}</p>
+      <h3><a href="{{ essay.url | relative_url }}">{{ essay.title }}</a></h3>
+      <p class="muted">{{ essay.summary | default: essay.excerpt | strip_html | truncate: 160 }}</p>
+      <div class="meta-row">
+        {% if essay.original_url %}
+          <a class="muted" href="{{ essay.original_url }}" target="_blank" rel="noopener">원문</a>
+        {% endif %}
+        <span class="pill small">{{ essay.difficulty }}</span>
+      </div>
+    </article>
+  {% endfor %}
+</div>
