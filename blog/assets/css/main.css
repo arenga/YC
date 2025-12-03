@@ -52,6 +52,10 @@ body {
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Header */
 .site-header {
   border-bottom: 1px solid var(--color-border);
@@ -195,6 +199,7 @@ body {
   gap: 3rem;
   flex-wrap: wrap;
   padding: 1rem 0;
+  overflow-x: auto;
 }
 
 .filter-group h3 {
@@ -397,6 +402,34 @@ body {
   outline-offset: 2px;
 }
 
+.toc-fab {
+  position: fixed;
+  left: 16px;
+  bottom: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-primary-strong);
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(20, 25, 37, 0.12);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .toc-fab {
+  background: var(--color-surface);
+  color: var(--color-primary);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.toc-fab:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
 .essay-header {
   text-align: center;
   padding-bottom: 2rem;
@@ -443,6 +476,10 @@ body {
   text-wrap: pretty;
   word-break: keep-all;
   hyphens: auto;
+}
+
+.essay-content p + p {
+  margin-top: 0.85rem;
 }
 
 .essay-content h2 {

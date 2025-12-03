@@ -19,7 +19,7 @@ layout: default
     <a href="{{ page.url_original }}" class="original-link" target="_blank" rel="noopener">원문 보기 →</a>
   </div>
 
-  <nav class="toc" aria-label="본문 바로가기">
+  <nav class="toc" id="toc" aria-label="본문 바로가기">
     <div class="toc-header">
       <p class="toc-title">본문 바로가기</p>
     </div>
@@ -70,6 +70,30 @@ layout: default
       li.appendChild(a);
       tocList.appendChild(li);
     });
+  })();
+
+  (function chunkLongParagraphs() {
+    const paras = Array.from(document.querySelectorAll('.essay-content p'));
+    paras.forEach((p) => {
+      const text = p.textContent ? p.textContent.trim() : '';
+      if (!text || text.length < 800 || text.includes('\n')) return;
+      const parts = text.split(/(?<=[.!?]|다\.)\s+(?=[A-Z가-힣0-9])/);
+      if (parts.length < 2) return;
+      const frag = document.createDocumentFragment();
+      parts.forEach((seg) => {
+        const np = document.createElement('p');
+        np.textContent = seg.trim();
+        frag.appendChild(np);
+      });
+      p.replaceWith(frag);
+    });
+  })();
+
+  (function tocFab() {
+    const tocFabBtn = document.getElementById('toc-fab');
+    const toc = document.getElementById('toc');
+    if (!tocFabBtn || !toc) return;
+    tocFabBtn.addEventListener('click', () => toc.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   })();
 
   (function readingProgress() {
