@@ -3,16 +3,6 @@ layout: default
 ---
 
 <article class="essay">
-  <nav class="breadcrumb" aria-label="현재 위치">
-    <a href="{{ '/' | relative_url }}">홈</a>
-    <span aria-hidden="true">/</span>
-    <a href="{{ '/essays/' | relative_url }}">전체 에세이</a>
-    <span aria-hidden="true">/</span>
-    <a href="{{ '/' | relative_url }}?category={{ page.category | uri_escape }}">{{ site.category_names[page.category] | default: page.category }}</a>
-    <span aria-hidden="true">/</span>
-    <span aria-current="page">{{ page.title }}</span>
-  </nav>
-
   <div class="reading-progress" aria-hidden="true">
     <span id="reading-progress-bar"></span>
   </div>
@@ -32,7 +22,6 @@ layout: default
   <nav class="toc" aria-label="본문 바로가기">
     <div class="toc-header">
       <p class="toc-title">본문 바로가기</p>
-      <p class="toc-hint">중간 소제목으로 바로 이동하세요.</p>
     </div>
     <ul id="toc-list"></ul>
   </nav>
