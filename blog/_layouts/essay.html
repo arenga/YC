@@ -146,6 +146,12 @@ layout: default
     const pageTitle = document.querySelector('.essay-title').textContent;
     const storageKey = 'agora-bookmarks';
 
+    // Extract category and difficulty from essay meta
+    const categoryEl = document.querySelector('.essay-meta .category');
+    const difficultyEl = document.querySelector('.essay-meta .difficulty');
+    const category = categoryEl ? categoryEl.textContent.trim() : '';
+    const difficulty = difficultyEl ? difficultyEl.textContent.trim() : '';
+
     function getBookmarks() {
       try {
         return JSON.parse(localStorage.getItem(storageKey)) || [];
@@ -183,6 +189,8 @@ layout: default
         bookmarks.push({
           path: currentPage,
           title: pageTitle,
+          category: category,
+          difficulty: difficulty,
           timestamp: Date.now()
         });
         saveBookmarks(bookmarks);

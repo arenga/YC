@@ -18,6 +18,33 @@ permalink: /bookmarks/
   </div>
 
   <div id="bookmarks-content" class="bookmarks-content" style="display: none;">
+    <div class="filter-section">
+      <div class="filters">
+        <div class="filter-group">
+          <h3>카테고리</h3>
+          <div class="filter-tags" id="bookmark-category-filters">
+            <button class="filter-tag active" data-filter="all">전체</button>
+            <button class="filter-tag" data-filter="Mindset">마인드셋</button>
+            <button class="filter-tag" data-filter="Product">프로덕트</button>
+            <button class="filter-tag" data-filter="Go-to-Market">Go-to-Market</button>
+            <button class="filter-tag" data-filter="Fundraising">펀드레이징</button>
+            <button class="filter-tag" data-filter="Operations & Execution">운영 & 실행</button>
+            <button class="filter-tag" data-filter="Productivity & Efficiency">생산성 & 효율성</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h3>난이도</h3>
+          <div class="filter-tags" id="bookmark-difficulty-filters">
+            <button class="filter-tag active" data-filter="all">전체</button>
+            <button class="filter-tag" data-filter="초급">입문</button>
+            <button class="filter-tag" data-filter="중급">중급</button>
+            <button class="filter-tag" data-filter="고급">고급</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="bookmarks-header">
       <p class="bookmarks-count">총 <strong id="bookmark-count">0</strong>개의 에세이</p>
       <button id="clear-all-btn" class="btn-secondary">전체 삭제</button>
@@ -37,6 +64,10 @@ permalink: /bookmarks/
     const list = document.getElementById('bookmarks-list');
     const countEl = document.getElementById('bookmark-count');
     const clearBtn = document.getElementById('clear-all-btn');
+
+    // Filter state
+    let activeCategory = 'all';
+    let activeDifficulty = 'all';
 
     function getBookmarks() {
       try {
@@ -75,21 +106,26 @@ permalink: /bookmarks/
 
       emptyState.style.display = 'none';
       content.style.display = 'block';
-      countEl.textContent = bookmarks.length;
 
       // Sort by most recent first
       bookmarks.sort((a, b) => b.timestamp - a.timestamp);
 
       list.innerHTML = bookmarks.map(bookmark => {
-        // Extract slug from path for constructing URL
-        const slug = bookmark.path.split('/').filter(Boolean).pop();
+        const category = bookmark.category || '';
+        const difficulty = bookmark.difficulty || '';
 
         return `
-          <article class="essay-card bookmarked-card">
+          <article class="essay-card bookmarked-card"
+                   data-category="${category}"
+                   data-difficulty="${difficulty}">
             <h3 class="essay-card-title">
               <span class="bookmark-marker" title="북마크됨">🔖</span>
               <a href="${bookmark.path}">${bookmark.title}</a>
             </h3>
+            <div class="essay-card-meta">
+              ${category ? `<span class="category">${category}</span>` : ''}
+              ${difficulty ? `<span class="difficulty">${difficulty}</span>` : ''}
+            </div>
             <div class="bookmark-actions">
               <span class="bookmark-date">${formatDate(bookmark.timestamp)}</span>
               <button class="remove-bookmark-btn" data-path="${bookmark.path}">삭제</button>
@@ -105,6 +141,31 @@ permalink: /bookmarks/
           removeBookmark(path);
         });
       });
+
+      // Apply filters after rendering
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const bookmarkCards = list.querySelectorAll('.essay-card');
+      let visibleCount = 0;
+
+      bookmarkCards.forEach(card => {
+        const category = card.dataset.category || '';
+        const difficulty = card.dataset.difficulty || '';
+
+        const categoryMatch = activeCategory === 'all' || category === activeCategory;
+        const difficultyMatch = activeDifficulty === 'all' || difficulty === activeDifficulty;
+
+        if (categoryMatch && difficultyMatch) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      countEl.textContent = visibleCount;
     }
 
     function formatDate(timestamp) {
@@ -126,6 +187,30 @@ permalink: /bookmarks/
         day: 'numeric'
       });
     }
+
+    // Filter event listeners
+    const categoryFilters = document.querySelectorAll('#bookmark-category-filters .filter-tag');
+    const difficultyFilters = document.querySelectorAll('#bookmark-difficulty-filters .filter-tag');
+
+    categoryFilters.forEach(button => {
+      button.addEventListener('click', () => {
+        activeCategory = button.dataset.filter;
+        categoryFilters.forEach(b => {
+          b.classList.toggle('active', b === button);
+        });
+        applyFilters();
+      });
+    });
+
+    difficultyFilters.forEach(button => {
+      button.addEventListener('click', () => {
+        activeDifficulty = button.dataset.filter;
+        difficultyFilters.forEach(b => {
+          b.classList.toggle('active', b === button);
+        });
+        applyFilters();
+      });
+    });
 
     clearBtn.addEventListener('click', clearAllBookmarks);
     renderBookmarks();
