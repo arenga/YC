@@ -73,14 +73,15 @@ permalink: /essays/
           {% endif %}
           {% assign cleaned = trimmed | strip_html | replace: "요약 (Summary)", "" | strip %}
           {% assign cleaned_one = cleaned | replace: "✨", "<<<CUT>>>" | split: "<<<CUT>>>" | first | strip | strip_newlines %}
+          {% assign cleaned_no_icon = cleaned_one | remove: "🎯" | strip %}
           {% assign prefix = cleaned_one | slice: 0, 2 %}
           {% if prefix == "🎯" %}
-            {% assign summary_line = cleaned_one | slice: 2, 500 | strip | truncate: 150 %}
+            {% assign summary_line = cleaned_no_icon | truncate: 150 %}
             {% break %}
           {% elsif prefix == "✨" %}
             {% continue %}
           {% elsif summary_line == "" %}
-            {% assign summary_line = cleaned_one | truncate: 150 %}
+            {% assign summary_line = cleaned_no_icon | truncate: 150 %}
           {% endif %}
         {% endfor %}
         {% if summary_line != "" %}
