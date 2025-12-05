@@ -62,14 +62,15 @@ title: 홈
             {% continue %}
           {% endif %}
           {% assign cleaned = trimmed | strip_html | replace: "요약 (Summary)", "" | strip %}
-          {% assign prefix = cleaned | slice: 0, 2 %}
+          {% assign cleaned_one = cleaned | replace: "✨", "<<<CUT>>>" | split: "<<<CUT>>>" | first | strip | strip_newlines %}
+          {% assign prefix = cleaned_one | slice: 0, 2 %}
           {% if prefix == "🎯" %}
-            {% assign summary_line = cleaned | split: "✨" | first | strip | truncate: 150 %}
+            {% assign summary_line = cleaned_one | truncate: 150 %}
             {% break %}
           {% elsif prefix == "✨" %}
             {% continue %}
           {% elsif summary_line == "" %}
-            {% assign summary_line = cleaned | truncate: 150 %}
+            {% assign summary_line = cleaned_one | truncate: 150 %}
           {% endif %}
         {% endfor %}
         {% if summary_line != "" %}
