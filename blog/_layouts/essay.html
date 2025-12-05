@@ -17,9 +17,9 @@ layout: default
       {% endif %}
     </div>
     <div class="essay-actions">
-      <button id="bookmark-btn" class="action-btn" title="관심">
+      <button id="bookmark-btn" class="action-btn" title="북마크">
         <span class="bookmark-icon">🔖</span>
-        <span class="bookmark-text">관심</span>
+        <span class="bookmark-text">북마크</span>
       </button>
       <a href="{{ page.url_original }}" class="original-link" target="_blank" rel="noopener">원문 보기 →</a>
     </div>
@@ -88,9 +88,11 @@ layout: default
   (function buildToc() {
     const headings = Array.from(document.querySelectorAll('.essay-content h2, .essay-content h3'));
     const tocList = document.getElementById('toc-list');
+    const tocWrapper = document.getElementById('toc');
     if (!headings.length || !tocList) {
       const toc = document.querySelector('.toc');
       if (toc) toc.style.display = 'none';
+      document.body.classList.add('toc-empty');
       return;
     }
 
@@ -114,14 +116,27 @@ layout: default
       li.appendChild(a);
       tocList.appendChild(li);
     });
+
+    if (tocWrapper) {
+      tocWrapper.classList.add('toc-visible');
+    }
   })();
 
   // ========== TOC FAB Button ==========
   (function tocFab() {
     const tocFabBtn = document.getElementById('toc-fab');
     const toc = document.getElementById('toc');
-    if (!tocFabBtn || !toc) return;
-    tocFabBtn.addEventListener('click', () => toc.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    const hasToc = toc && toc.classList.contains('toc-visible');
+    if (!tocFabBtn) return;
+    if (!hasToc) {
+      tocFabBtn.style.display = 'none';
+      return;
+    }
+    tocFabBtn.addEventListener('click', () => {
+      toc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      toc.classList.add('toc-flash');
+      setTimeout(() => toc.classList.remove('toc-flash'), 1200);
+    });
   })();
 
   // ========== Reading Progress Bar ==========
