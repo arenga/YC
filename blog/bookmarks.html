@@ -5,10 +5,33 @@ permalink: /bookmarks/
 ---
 
 <div class="bookmarks-page">
-  <div class="hero">
-    <h1 class="hero-title">관심 에세이</h1>
-    <p class="hero-subtitle">관심 표시한 에세이들을 모아서 확인하세요</p>
-  </div>
+  <section class="filter-section">
+    <h2 class="section-title">관심 에세이</h2>
+    <div class="filters">
+      <div class="filter-group">
+        <h3>카테고리</h3>
+        <div class="filter-tags" id="bookmark-category-filters">
+          <button class="filter-tag active" data-filter="all">전체</button>
+          <button class="filter-tag" data-filter="Mindset">마인드셋</button>
+          <button class="filter-tag" data-filter="Product">프로덕트</button>
+          <button class="filter-tag" data-filter="Go-to-Market">Go-to-Market</button>
+          <button class="filter-tag" data-filter="Fundraising">펀드레이징</button>
+          <button class="filter-tag" data-filter="Operations & Execution">운영 & 실행</button>
+          <button class="filter-tag" data-filter="Productivity & Efficiency">생산성 & 효율성</button>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <h3>난이도</h3>
+        <div class="filter-tags" id="bookmark-difficulty-filters">
+          <button class="filter-tag active" data-filter="all">전체</button>
+          <button class="filter-tag" data-filter="초급">입문</button>
+          <button class="filter-tag" data-filter="중급">중급</button>
+          <button class="filter-tag" data-filter="고급">고급</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <div id="bookmarks-empty" class="empty-state" style="display: none;">
     <div class="empty-icon">🔖</div>
@@ -18,32 +41,6 @@ permalink: /bookmarks/
   </div>
 
   <div id="bookmarks-content" class="bookmarks-content" style="display: none;">
-    <div class="filter-section">
-      <div class="filters">
-        <div class="filter-group">
-          <h3>카테고리</h3>
-          <div class="filter-tags" id="bookmark-category-filters">
-            <button class="filter-tag active" data-filter="all">전체</button>
-            <button class="filter-tag" data-filter="Mindset">마인드셋</button>
-            <button class="filter-tag" data-filter="Product">프로덕트</button>
-            <button class="filter-tag" data-filter="Go-to-Market">Go-to-Market</button>
-            <button class="filter-tag" data-filter="Fundraising">펀드레이징</button>
-            <button class="filter-tag" data-filter="Operations & Execution">운영 & 실행</button>
-            <button class="filter-tag" data-filter="Productivity & Efficiency">생산성 & 효율성</button>
-          </div>
-        </div>
-
-        <div class="filter-group">
-          <h3>난이도</h3>
-          <div class="filter-tags" id="bookmark-difficulty-filters">
-            <button class="filter-tag active" data-filter="all">전체</button>
-            <button class="filter-tag" data-filter="초급">입문</button>
-            <button class="filter-tag" data-filter="중급">중급</button>
-            <button class="filter-tag" data-filter="고급">고급</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="bookmarks-header">
       <p class="bookmarks-count">총 <strong id="bookmark-count">0</strong>개의 에세이</p>
