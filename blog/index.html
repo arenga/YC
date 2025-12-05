@@ -13,11 +13,12 @@ title: 홈
       <a class="btn ghost" href="{{ '/chat/' | relative_url }}">AI 코치 체험하기</a>
       <a class="btn ghost" href="https://arenga.github.io/YC/feed.xml">업데이트 구독</a>
     </div>
+    <p class="text-link scroll-down"><a href="#section-why">더 알아보기 ↓</a></p>
   </section>
 
   <hr class="divider" />
 
-  <section class="section-block">
+  <section class="section-block" id="section-why">
     <h2>혼란의 시대, 본질이 더 잘 보인다.</h2>
     <p>AI 도구가 하루가 멀다 하고 새로 나오고, 업계의 규칙은 매달 다시 정해진다. 덕분에 “무엇이든 할 수 있는 시대”가 되었지만 정작 PM과 창업자들은 하나의 문제에 부딪힌다. “그러면 우리는 무엇을 만들어야 하지?”</p>
     <p>아이디어는 셀 수 없이 많아졌지만, 정답을 찾는 일은 더 어려워졌다. PG의 에세이는 바로 이 질문에 대한 가장 근본적이면서 실전적인 답을 제공한다. 그는 기술을 말하는 것이 아니라 기술이 ‘가치’를 만드는 메커니즘을 이야기한다. 그리고 그 통찰은 20년이 지난 지금도 그대로 유효하다.</p>
@@ -41,7 +42,7 @@ title: 홈
 
   <hr class="divider" />
 
-  <section class="section-block">
+  <section class="section-block" id="section-korea">
     <h2>한국에서는 원전에 접근하기가 어렵다.</h2>
     <p>번역은 파편적이고, 개념은 왜곡되며, 사고 흐름은 대부분 삭제된다. 우리는 실리콘밸리의 핵심 지식을 ‘부분적으로만’ 소비하고 있다. 이것은 단순한 정보 격차가 아니라 의사결정 품질의 격차로 이어진다.</p>
     <p>PG의 한 문장을 잘못 이해하면 팀의 전략이 통째로 어긋날 수 있다.</p>
@@ -64,7 +65,7 @@ title: 홈
 
   <hr class="divider" />
 
-  <section class="section-block">
+  <section class="section-block" id="section-benefit">
     <h2>실무에서 달라지는 것들</h2>
     <div class="card-list">
       <div class="card-item">✅ 문제 정의가 빨라진다 — 진짜 문제/가짜 문제를 가려냄</div>
@@ -77,7 +78,7 @@ title: 홈
 
   <hr class="divider" />
 
-  <section class="section-block">
+  <section class="section-block" id="section-roadmap">
     <h2>아고라의 다음 단계</h2>
     <h3>1단계 — 지금</h3>
     <p>PG 에세이 정밀 번역 아카이브 구축</p>
@@ -89,7 +90,7 @@ title: 홈
 
   <hr class="divider" />
 
-  <section class="section-block">
+  <section class="section-block" id="section-final">
     <h2>AI 시대에도 흔들리지 않는 기준.</h2>
     <h2>사람들이 원하는 것을 만드는 사람.</h2>
     <p>PG를 정확히 이해하는 순간, 기준은 선명해진다.</p>
@@ -98,6 +99,16 @@ title: 홈
       <a class="btn ghost" href="{{ '/chat/' | relative_url }}">AI 코치와 대화하기</a>
       <a class="btn ghost" href="https://arenga.github.io/YC/feed.xml">뉴스레터 구독</a>
     </div>
+  </section>
+
+  <section class="section-block newsletter">
+    <h2>업데이트 알림</h2>
+    <p>신규 번역/PG 사고 도구 레터를 가장 먼저 받아보세요.</p>
+    <form id="subscribe-form" class="subscribe-form">
+      <input type="email" id="subscribe-email" placeholder="이메일을 입력하세요" required />
+      <button type="submit" class="btn primary">구독하기</button>
+      <p class="muted">RSS 구독: <a href="https://arenga.github.io/YC/feed.xml">https://arenga.github.io/YC/feed.xml</a></p>
+    </form>
   </section>
 </div>
 
@@ -108,6 +119,7 @@ title: 홈
   .hero-subtitle { font-size: 24px; color: #6a6a6a; margin-top: 1rem; }
   .hero-body { font-size: 20px; margin-top: 1rem; }
   .text-link a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; color: #111; }
+  .scroll-down { margin-top: 0.5rem; }
   .divider { border: 0; border-top: 1px solid #ededed; margin: 180px 0 90px; }
   .section-block h2 { font-size: 32px; font-weight: 500; margin-bottom: 24px; }
   .section-block h3 { font-size: 24px; font-weight: 500; margin-top: 24px; margin-bottom: 8px; }
@@ -116,11 +128,15 @@ title: 홈
   .card-list { display: grid; gap: 12px; grid-template-columns: 1fr; margin: 12px 0 24px; }
   .card-item { border: 1px solid #ededed; border-radius: 10px; padding: 14px 16px; font-size: 18px; line-height: 1.55; background: #fafafa; color: #111; }
   .cta-inline { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
-  .btn.primary { background: #111; color: #fff; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 600; }
-  .btn.ghost { border: 1px solid #111; color: #111; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 500; }
-  .btn.primary:hover, .btn.ghost:hover { opacity: 0.9; }
+  .btn.primary { background: #111; color: #fff; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 600; box-shadow: 0 10px 24px rgba(0,0,0,0.12); }
+  .btn.ghost { border: 1px solid #111; color: #111; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 500; background: #fff; box-shadow: 0 6px 14px rgba(0,0,0,0.08); }
+  .btn.primary:hover, .btn.ghost:hover { opacity: 0.92; transform: translateY(-1px); }
   .pill-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
   .pill-grid span { border: 1px solid #ededed; border-radius: 999px; padding: 8px 12px; font-size: 16px; color: #111; background: #f8f8f8; }
+  .newsletter { background: #f8f8f8; border-radius: 12px; padding: 20px; }
+  .subscribe-form { display: flex; flex-direction: column; gap: 10px; }
+  .subscribe-form input { padding: 12px 14px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; }
+  .subscribe-form .btn.primary { align-self: flex-start; }
   @media (max-width: 768px) {
     .hero-title { font-size: 38px; }
     .hero-subtitle { font-size: 20px; }
@@ -130,3 +146,19 @@ title: 홈
     .card-item { font-size: 17px; }
   }
 </style>
+
+<script>
+  // 구독 폼 (프런트만): 이메일 입력 시 피드 안내
+  (function subscribeHandler() {
+    const form = document.getElementById('subscribe-form');
+    const emailInput = document.getElementById('subscribe-email');
+    if (!form) return;
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = emailInput?.value?.trim();
+      if (!email) return;
+      alert('구독 요청이 접수되었습니다. RSS 피드도 함께 확인하세요: https://arenga.github.io/YC/feed.xml');
+      form.reset();
+    });
+  })();
+</script>
