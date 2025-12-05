@@ -1,19 +1,19 @@
 ---
 layout: default
-title: 저장한 에세이
+title: 관심 에세이
 permalink: /bookmarks/
 ---
 
 <div class="bookmarks-page">
   <div class="hero">
-    <h1 class="hero-title">저장한 에세이</h1>
-    <p class="hero-subtitle">북마크한 에세이들을 모아서 확인하세요</p>
+    <h1 class="hero-title">관심 에세이</h1>
+    <p class="hero-subtitle">관심 표시한 에세이들을 모아서 확인하세요</p>
   </div>
 
   <div id="bookmarks-empty" class="empty-state" style="display: none;">
     <div class="empty-icon">🔖</div>
-    <h2>저장한 에세이가 없습니다</h2>
-    <p>관심있는 에세이를 북마크하고 나중에 다시 읽어보세요.</p>
+    <h2>관심 에세이가 없습니다</h2>
+    <p>관심있는 에세이를 추가하고 나중에 다시 읽어보세요.</p>
     <a href="{{ '/' | relative_url }}" class="btn-primary">에세이 둘러보기</a>
   </div>
 
@@ -89,7 +89,7 @@ permalink: /bookmarks/
     }
 
     function clearAllBookmarks() {
-      if (confirm('모든 북마크를 삭제하시겠습니까?')) {
+      if (confirm('모든 관심 에세이를 삭제하시겠습니까?')) {
         localStorage.removeItem(storageKey);
         renderBookmarks();
       }
@@ -119,7 +119,7 @@ permalink: /bookmarks/
                    data-category="${category}"
                    data-difficulty="${difficulty}">
             <h3 class="essay-card-title">
-              <span class="bookmark-marker" title="북마크됨">🔖</span>
+              <span class="bookmark-marker" title="관심 에세이">🔖</span>
               <a href="${bookmark.path}">${bookmark.title}</a>
             </h3>
             <div class="essay-card-meta">

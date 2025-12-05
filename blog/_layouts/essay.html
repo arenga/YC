@@ -17,9 +17,9 @@ layout: default
       {% endif %}
     </div>
     <div class="essay-actions">
-      <button id="bookmark-btn" class="action-btn" title="북마크">
+      <button id="bookmark-btn" class="action-btn" title="관심">
         <span class="bookmark-icon">🔖</span>
-        <span class="bookmark-text">저장</span>
+        <span class="bookmark-text">관심</span>
       </button>
       <a href="{{ page.url_original }}" class="original-link" target="_blank" rel="noopener">원문 보기 →</a>
     </div>
@@ -171,10 +171,8 @@ layout: default
     function updateButton() {
       if (isBookmarked()) {
         bookmarkBtn.classList.add('bookmarked');
-        bookmarkBtn.querySelector('.bookmark-text').textContent = '저장됨';
       } else {
         bookmarkBtn.classList.remove('bookmarked');
-        bookmarkBtn.querySelector('.bookmark-text').textContent = '저장';
       }
     }
 
@@ -184,7 +182,7 @@ layout: default
       if (isBookmarked()) {
         bookmarks = bookmarks.filter(b => b.path !== currentPage);
         saveBookmarks(bookmarks);
-        alert('북마크가 제거되었습니다.');
+        alert('관심 에세이에서 제거되었습니다.');
       } else {
         bookmarks.push({
           path: currentPage,
@@ -194,7 +192,7 @@ layout: default
           timestamp: Date.now()
         });
         saveBookmarks(bookmarks);
-        alert('북마크에 저장되었습니다!');
+        alert('관심 에세이에 추가되었습니다!');
       }
 
       updateButton();

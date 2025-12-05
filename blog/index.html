@@ -47,7 +47,7 @@ title: 홈
       {% for essay in sorted_essays %}
       <article class="essay-card" data-category="{{ essay.category }}" data-difficulty="{{ essay.difficulty }}" data-path="{{ essay.url | relative_url }}">
         <h3 class="essay-card-title">
-          <span class="bookmark-marker" style="display: none;" title="북마크됨">🔖</span>
+          <span class="bookmark-marker" style="display: none;" title="관심 에세이">🔖</span>
           <a href="{{ essay.url | relative_url }}">{{ essay.title }}</a>
         </h3>
         <div class="essay-card-meta">
