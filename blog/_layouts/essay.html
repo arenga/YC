@@ -241,6 +241,12 @@ layout: default
     const category = categoryEl ? categoryEl.textContent.trim() : '';
     const difficulty = difficultyEl ? difficultyEl.textContent.trim() : '';
 
+    // Calculate reading time
+    const content = document.querySelector('.essay-content');
+    const textContent = content ? content.textContent.trim() : '';
+    const charCount = textContent.length;
+    const readingTime = Math.max(1, Math.floor(charCount / 350));
+
     function getBookmarks() {
       try {
         return JSON.parse(localStorage.getItem(storageKey)) || [];
@@ -278,6 +284,7 @@ layout: default
           title: pageTitle,
           category: category,
           difficulty: difficulty,
+          readingTime: readingTime,
           timestamp: Date.now()
         });
         saveBookmarks(bookmarks);

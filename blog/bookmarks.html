@@ -113,6 +113,7 @@ permalink: /bookmarks/
       list.innerHTML = bookmarks.map(bookmark => {
         const category = bookmark.category || '';
         const difficulty = bookmark.difficulty || '';
+        const readingTime = bookmark.readingTime || '';
 
         return `
           <article class="essay-card bookmarked-card"
@@ -125,6 +126,7 @@ permalink: /bookmarks/
             <div class="essay-card-meta">
               ${category ? `<span class="category">${category}</span>` : ''}
               ${difficulty ? `<span class="difficulty">${difficulty}</span>` : ''}
+              ${readingTime ? `<span class="reading-time">${readingTime}분 읽기</span>` : ''}
             </div>
             <div class="bookmark-actions">
               <span class="bookmark-date">${formatDate(bookmark.timestamp)}</span>

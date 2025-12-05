@@ -54,6 +54,11 @@ permalink: /essays/
         <div class="essay-card-meta">
           <span class="category">{{ site.category_names[essay.category] | default: essay.category }}</span>
           <span class="difficulty">{{ site.difficulty_levels[essay.difficulty] | default: essay.difficulty }}</span>
+          {% assign content_text = essay.content | strip_html | strip_newlines %}
+          {% assign char_count = content_text | size %}
+          {% assign read_time = char_count | divided_by: 350 %}
+          {% if read_time < 1 %}{% assign read_time = 1 %}{% endif %}
+          <span class="reading-time">{{ read_time }}분 읽기</span>
         </div>
       </article>
       {% endfor %}
