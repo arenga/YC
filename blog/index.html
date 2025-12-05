@@ -8,7 +8,11 @@ title: 홈
     <h1 class="hero-title">AI 시대에는 모든 것이 다시 쓰이고 있지만,<br>사업의 본질은 단 한 번도 변하지 않았다.</h1>
     <h2 class="hero-subtitle">Make Something People Want. YC를 만든 단 하나의 기준.</h2>
     <p class="hero-body">실리콘밸리의 핵심 사고 도구를 한국어로 정확하게 복원한 아카이브.</p>
-    <p class="text-link"><a href="{{ '/essays/' | relative_url }}">PG 에세이 전체 보기 →</a></p>
+    <div class="cta-inline">
+      <a class="btn primary" href="{{ '/essays/' | relative_url }}">PG 에세이 전체 보기</a>
+      <a class="btn ghost" href="{{ '/chat/' | relative_url }}">AI 코치 체험하기</a>
+      <a class="btn ghost" href="https://arenga.github.io/YC/feed.xml">업데이트 구독</a>
+    </div>
   </section>
 
   <hr class="divider" />
@@ -26,6 +30,12 @@ title: 홈
     <h2>왜 Y Combinator와 Paul Graham인가?</h2>
     <p>실리콘밸리의 수많은 기업들이 하나의 사고 원형을 공유한다. 그 출발점에 PG와 YC가 있다.</p>
     <p>Airbnb, Stripe, Dropbox, OpenAI. “Make Something People Want” 철학의 창시자. 20년이 지나도 유효한 의사결정 규칙.</p>
+    <div class="pill-grid">
+      <span>🧠 사용자 집착</span>
+      <span>⚡ 빠른 출시/피드백</span>
+      <span>🛠️ 작은 팀의 집요함</span>
+      <span>📈 파도/타이밍 읽기</span>
+    </div>
     <p class="text-link"><a href="{{ '/philosophy/core' | relative_url }}">YC 철학 핵심 한눈에 보기 →</a></p>
   </section>
 
@@ -43,12 +53,12 @@ title: 홈
   <section class="section-block">
     <h2>아고라는 ‘원전 그대로’를 복원합니다.</h2>
     <p>우리가 하는 일은 요약이 아니다. 우리는 PG의 사고 구조 전체를 훼손 없이 보존한다.</p>
-    <ul class="plain-list">
-      <li>원문 논리 흐름을 유지한 정밀 번역</li>
-      <li>원문–해석–핵심의 3단 구성</li>
-      <li>감성 포장 없는 의미 중심 해석</li>
-      <li>전체 에세이 아카이브화</li>
-    </ul>
+    <div class="card-list">
+      <div class="card-item">① 원문 논리 흐름을 유지한 정밀 번역</div>
+      <div class="card-item">② 원문–해석–핵심을 나란히 배치</div>
+      <div class="card-item">③ 감성 포장 없는 의미 중심 해석</div>
+      <div class="card-item">④ 전체 에세이를 하나의 아카이브로</div>
+    </div>
     <p class="text-link"><a href="{{ '/essays/' | relative_url }}">전체 아카이브 탐색하기 →</a></p>
   </section>
 
@@ -56,12 +66,12 @@ title: 홈
 
   <section class="section-block">
     <h2>실무에서 달라지는 것들</h2>
-    <ul class="plain-list">
-      <li>문제 정의가 빨라진다</li>
-      <li>MVP/실험의 방향이 선명해진다</li>
-      <li>전략에 일관성이 생긴다</li>
-      <li>원전 기반 사고가 가능한 PM/창업자가 된다</li>
-    </ul>
+    <div class="card-list">
+      <div class="card-item">✅ 문제 정의가 빨라진다 — 진짜 문제/가짜 문제를 가려냄</div>
+      <div class="card-item">✅ MVP/실험 방향이 선명해진다 — 해야 할 것보다 하지 말아야 할 것부터 제거</div>
+      <div class="card-item">✅ 전략에 일관성이 생긴다 — 모든 판단 기준이 “사람들이 원하는가?”로 정렬</div>
+      <div class="card-item">✅ 팀 정렬이 쉬워진다 — 재사용 가능한 사고틀로 합의</div>
+    </div>
     <p class="text-link"><a href="{{ '/philosophy/core' | relative_url }}">PG 사고 도구 보기 →</a></p>
   </section>
 
@@ -83,8 +93,11 @@ title: 홈
     <h2>AI 시대에도 흔들리지 않는 기준.</h2>
     <h2>사람들이 원하는 것을 만드는 사람.</h2>
     <p>PG를 정확히 이해하는 순간, 기준은 선명해진다.</p>
-    <p class="text-link"><a href="{{ '/essays/' | relative_url }}">PG 에세이 전체 보기 →</a></p>
-    <p class="text-link"><a href="{{ '/chat/' | relative_url }}">AI 코치와 대화하기 →</a></p>
+    <div class="cta-inline">
+      <a class="btn primary" href="{{ '/essays/' | relative_url }}">PG 에세이 전체 보기</a>
+      <a class="btn ghost" href="{{ '/chat/' | relative_url }}">AI 코치와 대화하기</a>
+      <a class="btn ghost" href="https://arenga.github.io/YC/feed.xml">뉴스레터 구독</a>
+    </div>
   </section>
 </div>
 
@@ -100,11 +113,20 @@ title: 홈
   .section-block h3 { font-size: 24px; font-weight: 500; margin-top: 24px; margin-bottom: 8px; }
   .section-block p { font-size: 20px; line-height: 1.58; margin: 0 0 24px; color: #111; }
   .plain-list { list-style: disc; padding-left: 1.2rem; margin: 0 0 24px; font-size: 20px; line-height: 1.58; }
+  .card-list { display: grid; gap: 12px; grid-template-columns: 1fr; margin: 12px 0 24px; }
+  .card-item { border: 1px solid #ededed; border-radius: 10px; padding: 14px 16px; font-size: 18px; line-height: 1.55; background: #fafafa; color: #111; }
+  .cta-inline { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+  .btn.primary { background: #111; color: #fff; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 600; }
+  .btn.ghost { border: 1px solid #111; color: #111; padding: 10px 16px; border-radius: 999px; text-decoration: none; font-weight: 500; }
+  .btn.primary:hover, .btn.ghost:hover { opacity: 0.9; }
+  .pill-grid { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 20px; }
+  .pill-grid span { border: 1px solid #ededed; border-radius: 999px; padding: 8px 12px; font-size: 16px; color: #111; background: #f8f8f8; }
   @media (max-width: 768px) {
     .hero-title { font-size: 38px; }
     .hero-subtitle { font-size: 20px; }
     .hero-body, .section-block p, .plain-list { font-size: 18px; }
     .section-block h2 { font-size: 28px; }
     .divider { margin: 140px 0 70px; }
+    .card-item { font-size: 17px; }
   }
 </style>
