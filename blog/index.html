@@ -45,8 +45,9 @@ title: 홈
     <div class="essays-grid" id="essays-grid">
       {% assign sorted_essays = site.essays | sort: 'title' %}
       {% for essay in sorted_essays %}
-      <article class="essay-card" data-category="{{ essay.category }}" data-difficulty="{{ essay.difficulty }}">
+      <article class="essay-card" data-category="{{ essay.category }}" data-difficulty="{{ essay.difficulty }}" data-path="{{ essay.url | relative_url }}">
         <h3 class="essay-card-title">
+          <span class="bookmark-marker" style="display: none;" title="북마크됨">🔖</span>
           <a href="{{ essay.url | relative_url }}">{{ essay.title }}</a>
         </h3>
         <div class="essay-card-meta">
@@ -126,4 +127,39 @@ title: 홈
 
   applyQueryDefaults();
   filterEssays();
+
+  // Bookmark markers
+  (function showBookmarkMarkers() {
+    function getBookmarks() {
+      try {
+        return JSON.parse(localStorage.getItem('agora-bookmarks')) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function updateMarkers() {
+      const bookmarks = getBookmarks();
+      const bookmarkedPaths = new Set(bookmarks.map(b => b.path));
+
+      essayCards.forEach(card => {
+        const path = card.dataset.path;
+        const marker = card.querySelector('.bookmark-marker');
+
+        if (marker) {
+          if (bookmarkedPaths.has(path)) {
+            marker.style.display = 'inline';
+            card.classList.add('is-bookmarked');
+          } else {
+            marker.style.display = 'none';
+            card.classList.remove('is-bookmarked');
+          }
+        }
+      });
+    }
+
+    updateMarkers();
+    window.addEventListener('storage', updateMarkers);
+    window.addEventListener('bookmarksUpdated', updateMarkers);
+  })();
 </script>

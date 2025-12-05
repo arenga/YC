@@ -190,6 +190,9 @@ layout: default
       }
 
       updateButton();
+
+      // Trigger custom event for other pages to update
+      window.dispatchEvent(new Event('bookmarksUpdated'));
     });
 
     updateButton();

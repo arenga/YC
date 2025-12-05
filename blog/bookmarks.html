@@ -1,0 +1,140 @@
+---
+layout: default
+title: 저장한 에세이
+permalink: /bookmarks/
+---
+
+<div class="bookmarks-page">
+  <div class="hero">
+    <h1 class="hero-title">저장한 에세이</h1>
+    <p class="hero-subtitle">북마크한 에세이들을 모아서 확인하세요</p>
+  </div>
+
+  <div id="bookmarks-empty" class="empty-state" style="display: none;">
+    <div class="empty-icon">🔖</div>
+    <h2>저장한 에세이가 없습니다</h2>
+    <p>관심있는 에세이를 북마크하고 나중에 다시 읽어보세요.</p>
+    <a href="{{ '/' | relative_url }}" class="btn-primary">에세이 둘러보기</a>
+  </div>
+
+  <div id="bookmarks-content" class="bookmarks-content" style="display: none;">
+    <div class="bookmarks-header">
+      <p class="bookmarks-count">총 <strong id="bookmark-count">0</strong>개의 에세이</p>
+      <button id="clear-all-btn" class="btn-secondary">전체 삭제</button>
+    </div>
+
+    <div class="essays-grid" id="bookmarks-list">
+      <!-- Bookmarked essays will be inserted here -->
+    </div>
+  </div>
+</div>
+
+<script>
+  (function loadBookmarks() {
+    const storageKey = 'agora-bookmarks';
+    const emptyState = document.getElementById('bookmarks-empty');
+    const content = document.getElementById('bookmarks-content');
+    const list = document.getElementById('bookmarks-list');
+    const countEl = document.getElementById('bookmark-count');
+    const clearBtn = document.getElementById('clear-all-btn');
+
+    function getBookmarks() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveBookmarks(bookmarks) {
+      localStorage.setItem(storageKey, JSON.stringify(bookmarks));
+    }
+
+    function removeBookmark(path) {
+      let bookmarks = getBookmarks();
+      bookmarks = bookmarks.filter(b => b.path !== path);
+      saveBookmarks(bookmarks);
+      renderBookmarks();
+    }
+
+    function clearAllBookmarks() {
+      if (confirm('모든 북마크를 삭제하시겠습니까?')) {
+        localStorage.removeItem(storageKey);
+        renderBookmarks();
+      }
+    }
+
+    function renderBookmarks() {
+      const bookmarks = getBookmarks();
+
+      if (bookmarks.length === 0) {
+        emptyState.style.display = 'block';
+        content.style.display = 'none';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      content.style.display = 'block';
+      countEl.textContent = bookmarks.length;
+
+      // Sort by most recent first
+      bookmarks.sort((a, b) => b.timestamp - a.timestamp);
+
+      list.innerHTML = bookmarks.map(bookmark => {
+        // Extract slug from path for constructing URL
+        const slug = bookmark.path.split('/').filter(Boolean).pop();
+
+        return `
+          <article class="essay-card bookmarked-card">
+            <h3 class="essay-card-title">
+              <span class="bookmark-marker" title="북마크됨">🔖</span>
+              <a href="${bookmark.path}">${bookmark.title}</a>
+            </h3>
+            <div class="bookmark-actions">
+              <span class="bookmark-date">${formatDate(bookmark.timestamp)}</span>
+              <button class="remove-bookmark-btn" data-path="${bookmark.path}">삭제</button>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      // Attach event listeners
+      list.querySelectorAll('.remove-bookmark-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const path = e.target.dataset.path;
+          removeBookmark(path);
+        });
+      });
+    }
+
+    function formatDate(timestamp) {
+      const date = new Date(timestamp);
+      const now = new Date();
+      const diffMs = now - date;
+      const diffMins = Math.floor(diffMs / 60000);
+      const diffHours = Math.floor(diffMs / 3600000);
+      const diffDays = Math.floor(diffMs / 86400000);
+
+      if (diffMins < 1) return '방금 전';
+      if (diffMins < 60) return `${diffMins}분 전`;
+      if (diffHours < 24) return `${diffHours}시간 전`;
+      if (diffDays < 7) return `${diffDays}일 전`;
+
+      return date.toLocaleDateString('ko-KR', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+    }
+
+    clearBtn.addEventListener('click', clearAllBookmarks);
+    renderBookmarks();
+
+    // Listen for storage changes from other tabs
+    window.addEventListener('storage', (e) => {
+      if (e.key === storageKey) {
+        renderBookmarks();
+      }
+    });
+  })();
+</script>
