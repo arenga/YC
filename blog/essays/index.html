@@ -27,8 +27,17 @@ permalink: /essays/
           <span class="category">{{ site.category_names[essay.category] | default: essay.category }}</span>
           <span class="difficulty">{{ site.difficulty_levels[essay.difficulty] | default: essay.difficulty }}</span>
         </div>
-        {% if essay.excerpt %}
-          <p class="essay-card-excerpt">{{ essay.excerpt | strip_html | truncate: 150 }}</p>
+        {% assign summary_line = "" %}
+        {% assign paragraphs = essay.content | split: "\n\n" %}
+        {% for para in paragraphs %}
+          {% assign trimmed = para | strip %}
+          {% unless trimmed == "" or trimmed contains "##" %}
+            {% assign summary_line = trimmed | strip_html | replace: "요약 (Summary)", "" | strip | truncate: 150 %}
+            {% break %}
+          {% endunless %}
+        {% endfor %}
+        {% if summary_line != "" %}
+          <p class="essay-card-excerpt">{{ summary_line }}</p>
         {% endif %}
       </article>
     {% endfor %}
