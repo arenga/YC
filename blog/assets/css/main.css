@@ -294,6 +294,11 @@ body {
   font-weight: 500;
 }
 
+.cat-icon {
+  margin-right: 0.35rem;
+  display: inline-block;
+}
+
 .essay-card-meta .reading-time::before {
   content: "·";
   margin: 0 0.5rem;

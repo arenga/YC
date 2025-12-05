@@ -47,7 +47,16 @@ permalink: /essays/
           <a href="{{ essay.url | relative_url }}">{{ essay.title }}</a>
         </h3>
         <div class="essay-card-meta">
-          <span class="category">{{ site.category_names[essay.category] | default: essay.category }}</span>
+          {% assign cat_icon = "💡" %}
+          {% case essay.category %}
+            {% when "Mindset" %}{% assign cat_icon = "🧠" %}
+            {% when "Product" %}{% assign cat_icon = "🛠️" %}
+            {% when "Fundraising" %}{% assign cat_icon = "💰" %}
+            {% when "Go-to-Market" %}{% assign cat_icon = "📈" %}
+            {% when "Operations & Execution" %}{% assign cat_icon = "⚙️" %}
+            {% when "Productivity & Efficiency" %}{% assign cat_icon = "⏱️" %}
+          {% endcase %}
+          <span class="category"><span class="cat-icon">{{ cat_icon }}</span>{{ site.category_names[essay.category] | default: essay.category }}</span>
           <span class="difficulty">{{ site.difficulty_levels[essay.difficulty] | default: essay.difficulty }}</span>
           {% assign content_text = essay.content | strip_html | strip_newlines %}
           {% assign char_count = content_text | size %}
@@ -55,6 +64,28 @@ permalink: /essays/
           {% if read_time < 1 %}{% assign read_time = 1 %}{% endif %}
           <span class="reading-time">{{ read_time }}분 읽기</span>
         </div>
+        {% assign summary_line = "" %}
+        {% assign paragraphs = essay.content | split: "\n\n" %}
+        {% for para in paragraphs %}
+          {% assign trimmed = para | strip %}
+          {% if trimmed == "" or trimmed contains "##" %}
+            {% continue %}
+          {% endif %}
+          {% assign cleaned = trimmed | strip_html | replace: "요약 (Summary)", "" | strip %}
+          {% assign cleaned_one = cleaned | replace: "✨", "<<<CUT>>>" | split: "<<<CUT>>>" | first | strip | strip_newlines %}
+          {% assign prefix = cleaned_one | slice: 0, 2 %}
+          {% if prefix == "🎯" %}
+            {% assign summary_line = cleaned_one | truncate: 150 %}
+            {% break %}
+          {% elsif prefix == "✨" %}
+            {% continue %}
+          {% elsif summary_line == "" %}
+            {% assign summary_line = cleaned_one | truncate: 150 %}
+          {% endif %}
+        {% endfor %}
+        {% if summary_line != "" %}
+          <p class="essay-card-excerpt">{{ summary_line }}</p>
+        {% endif %}
       </article>
       {% endfor %}
     </div>
