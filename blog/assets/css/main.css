@@ -369,6 +369,10 @@ body {
   left: 24px;
 }
 
+body.toc-empty .toc-fab {
+  display: none;
+}
+
 .scroll-top:hover,
 .toc-fab:hover {
   background: var(--color-text);

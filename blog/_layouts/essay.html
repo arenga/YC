@@ -139,6 +139,60 @@ layout: default
     });
   })();
 
+  // ========== Chunk long paragraphs (readability) ==========
+  (function chunkLongParagraphs() {
+    const paras = Array.from(document.querySelectorAll('.essay-content p'));
+    paras.forEach((p) => {
+      const text = p.textContent ? p.textContent.trim() : '';
+      if (!text || text.length < 500 || text.includes('\n')) return;
+      const parts = text.split(/(?<=[.!?]|다\.)\s+(?=[A-Z가-힣0-9])/);
+      if (parts.length < 2) return;
+      const frag = document.createDocumentFragment();
+      parts.forEach((seg) => {
+        const np = document.createElement('p');
+        np.textContent = seg.trim();
+        frag.appendChild(np);
+      });
+      p.replaceWith(frag);
+    });
+  })();
+
+  // ========== Bullet normalization (• → list) ==========
+  (function normalizeBullets() {
+    const content = document.querySelector('.essay-content');
+    if (!content) return;
+    const paragraphs = Array.from(content.querySelectorAll('p'));
+    let buffer = [];
+
+    function flushBuffer() {
+      if (buffer.length < 1) return;
+      const ul = document.createElement('ul');
+      buffer.forEach((p) => {
+        const li = document.createElement('li');
+        li.textContent = p.textContent.replace(/^•\s*/, '').trim();
+        ul.appendChild(li);
+        p.remove();
+      });
+      const refNode = buffer[buffer.length - 1].nextSibling;
+      if (refNode) {
+        refNode.parentNode.insertBefore(ul, refNode);
+      } else {
+        content.appendChild(ul);
+      }
+      buffer = [];
+    }
+
+    paragraphs.forEach((p) => {
+      const txt = (p.textContent || '').trim();
+      if (txt.startsWith('•')) {
+        buffer.push(p);
+      } else {
+        flushBuffer();
+      }
+    });
+    flushBuffer();
+  })();
+
   // ========== Reading Progress Bar ==========
   (function readingProgress() {
     const bar = document.getElementById('reading-progress-bar');
