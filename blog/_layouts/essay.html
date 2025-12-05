@@ -193,6 +193,26 @@ layout: default
     flushBuffer();
   })();
 
+  // ========== Punctuation spacing (".", "?", "!") ==========
+  (function normalizePunctuationSpacing() {
+    const root = document.querySelector('.essay-content');
+    if (!root) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+    const regex = /([.?!])([^\s\u00a0\]\)\}"»'])/g;
+    const updates = [];
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      const original = node.nodeValue;
+      const updated = original.replace(regex, '$1 $2');
+      if (updated !== original) {
+        updates.push({ node, updated });
+      }
+    }
+    updates.forEach(({ node, updated }) => {
+      node.nodeValue = updated;
+    });
+  })();
+
   // ========== Reading Progress Bar ==========
   (function readingProgress() {
     const bar = document.getElementById('reading-progress-bar');
