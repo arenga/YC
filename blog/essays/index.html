@@ -35,10 +35,11 @@ permalink: /essays/
             {% continue %}
           {% endif %}
           {% assign cleaned = trimmed | strip_html | replace: "요약 (Summary)", "" | strip %}
-          {% if cleaned startswith "🎯" %}
+          {% assign prefix = cleaned | slice: 0, 2 %}
+          {% if prefix == "🎯" %}
             {% assign summary_line = cleaned | truncate: 150 %}
             {% break %}
-          {% elsif summary_line == "" and cleaned contains "✨" %}
+          {% elsif prefix == "✨" %}
             {% continue %}
           {% elsif summary_line == "" %}
             {% assign summary_line = cleaned | truncate: 150 %}
