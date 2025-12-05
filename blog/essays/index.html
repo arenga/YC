@@ -31,10 +31,18 @@ permalink: /essays/
         {% assign paragraphs = essay.content | split: "\n\n" %}
         {% for para in paragraphs %}
           {% assign trimmed = para | strip %}
-          {% unless trimmed == "" or trimmed contains "##" %}
-            {% assign summary_line = trimmed | strip_html | replace: "요약 (Summary)", "" | strip | truncate: 150 %}
+          {% if trimmed == "" or trimmed contains "##" %}
+            {% continue %}
+          {% endif %}
+          {% assign cleaned = trimmed | strip_html | replace: "요약 (Summary)", "" | strip %}
+          {% if cleaned startswith "🎯" %}
+            {% assign summary_line = cleaned | truncate: 150 %}
             {% break %}
-          {% endunless %}
+          {% elsif summary_line == "" and cleaned contains "✨" %}
+            {% continue %}
+          {% elsif summary_line == "" %}
+            {% assign summary_line = cleaned | truncate: 150 %}
+          {% endif %}
         {% endfor %}
         {% if summary_line != "" %}
           <p class="essay-card-excerpt">{{ summary_line }}</p>
