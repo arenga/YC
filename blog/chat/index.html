@@ -1,0 +1,72 @@
+---
+layout: default
+title: YC Agent Chat
+permalink: /chat/
+---
+
+<section class="chat-hero">
+  <h1>YC Agent</h1>
+  <p class="muted">Paul Graham 에세이 기반 YC 철학을 내재화한 에이전트와 대화해 보세요.</p>
+</section>
+
+<section class="chat-box">
+  <div id="chat-log" class="chat-log" aria-live="polite"></div>
+  <form id="chat-form" class="chat-form">
+    <input id="chat-input" type="text" placeholder="질문을 입력하세요 (예: B2B SaaS 초기에 무엇을 먼저 검증해야 할까?)" required />
+    <button type="submit">전송</button>
+  </form>
+  <p class="muted chat-hint">백엔드가 `/api/chat`에 배포되어 있어야 합니다. 엔드포인트는 `{messages: [{role, content}]}` POST(JSON) → `{reply}` 형태를 반환하도록 구현하세요.</p>
+</section>
+
+<style>
+  .chat-hero { max-width: 720px; margin: 0 auto 1.5rem; }
+  .chat-box { max-width: 720px; margin: 0 auto; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; background: var(--color-surface); }
+  .chat-log { min-height: 240px; max-height: 480px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.75rem; padding: 0.5rem; }
+  .bubble { padding: 0.75rem 1rem; border-radius: 10px; line-height: 1.5; }
+  .user { background: var(--color-primary-soft); color: var(--color-text); align-self: flex-end; }
+  .agent { background: var(--color-bg); border: 1px solid var(--color-border); }
+  .chat-form { display: flex; gap: 0.5rem; margin-top: 1rem; }
+  #chat-input { flex: 1; padding: 0.75rem 1rem; border-radius: 999px; border: 1px solid var(--color-border); }
+  button[type="submit"] { padding: 0.75rem 1.25rem; border-radius: 999px; border: none; background: var(--color-primary); color: var(--color-bg); cursor: pointer; }
+  button[type="submit"]:hover { background: var(--color-primary-hover); }
+</style>
+
+<script>
+  (function chatUI() {
+    const log = document.getElementById('chat-log');
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('chat-input');
+
+    function addBubble(text, role) {
+      const div = document.createElement('div');
+      div.className = `bubble ${role === 'user' ? 'user' : 'agent'}`;
+      div.textContent = text;
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const question = input.value.trim();
+      if (!question) return;
+      addBubble(question, 'user');
+      input.value = '';
+
+      try {
+        const res = await fetch('/api/chat', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: [{ role: 'user', content: question }] })
+        });
+        if (!res.ok) throw new Error('API error');
+        const data = await res.json();
+        addBubble(data.reply || '응답을 불러오지 못했습니다.', 'agent');
+      } catch (err) {
+        addBubble('응답 중 오류가 발생했습니다. 백엔드 설정을 확인하세요.', 'agent');
+        console.error(err);
+      }
+    });
+
+    addBubble('안녕하세요! YC 철학 기반으로 실행 조언을 드릴게요. 무엇이 궁금하세요?', 'agent');
+  })();
+</script>
