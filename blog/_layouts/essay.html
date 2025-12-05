@@ -16,7 +16,13 @@ layout: default
       <span class="year">{{ page.year }}</span>
       {% endif %}
     </div>
-    <a href="{{ page.url_original }}" class="original-link" target="_blank" rel="noopener">원문 보기 →</a>
+    <div class="essay-actions">
+      <button id="bookmark-btn" class="action-btn" title="북마크">
+        <span class="bookmark-icon">🔖</span>
+        <span class="bookmark-text">저장</span>
+      </button>
+      <a href="{{ page.url_original }}" class="original-link" target="_blank" rel="noopener">원문 보기 →</a>
+    </div>
   </div>
 
   <nav class="toc" id="toc" aria-label="본문 바로가기">
@@ -26,8 +32,24 @@ layout: default
     <ul id="toc-list"></ul>
   </nav>
 
-  <div class="essay-content">
+  <div class="essay-content" id="essay-content">
     {{ content }}
+  </div>
+
+  <!-- Highlight Popup -->
+  <div id="highlight-popup" class="highlight-popup" style="display: none;">
+    <button id="highlight-btn" class="highlight-popup-btn" title="하이라이트">
+      <span>💡</span> 하이라이트
+    </button>
+    <button id="remove-highlight-btn" class="highlight-popup-btn" title="하이라이트 제거" style="display: none;">
+      <span>✕</span> 제거
+    </button>
+  </div>
+
+  <!-- Saved Highlights Section -->
+  <div id="highlights-section" class="highlights-section" style="display: none;">
+    <h3>내가 저장한 하이라이트</h3>
+    <ul id="highlights-list"></ul>
   </div>
 
   <div class="essay-footer">
@@ -38,9 +60,31 @@ layout: default
       <button onclick="copyLink()">링크 복사</button>
     </div>
   </div>
+
+  <!-- Comments Section using giscus -->
+  <div class="comments-section">
+    <h3 class="comments-title">댓글</h3>
+    <script src="https://giscus.app/client.js"
+        data-repo="arenga/YC"
+        data-repo-id="R_kgDONbHX7A"
+        data-category="General"
+        data-category-id="DIC_kwDONbHX7M4Cl-DU"
+        data-mapping="pathname"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="ko"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+    </script>
+  </div>
 </article>
 
 <script>
+  // ========== Table of Contents ==========
   (function buildToc() {
     const headings = Array.from(document.querySelectorAll('.essay-content h2, .essay-content h3'));
     const tocList = document.getElementById('toc-list');
@@ -72,23 +116,7 @@ layout: default
     });
   })();
 
-  (function chunkLongParagraphs() {
-    const paras = Array.from(document.querySelectorAll('.essay-content p'));
-    paras.forEach((p) => {
-      const text = p.textContent ? p.textContent.trim() : '';
-      if (!text || text.length < 800 || text.includes('\n')) return;
-      const parts = text.split(/(?<=[.!?]|다\.)\s+(?=[A-Z가-힣0-9])/);
-      if (parts.length < 2) return;
-      const frag = document.createDocumentFragment();
-      parts.forEach((seg) => {
-        const np = document.createElement('p');
-        np.textContent = seg.trim();
-        frag.appendChild(np);
-      });
-      p.replaceWith(frag);
-    });
-  })();
-
+  // ========== TOC FAB Button ==========
   (function tocFab() {
     const tocFabBtn = document.getElementById('toc-fab');
     const toc = document.getElementById('toc');
@@ -96,6 +124,7 @@ layout: default
     tocFabBtn.addEventListener('click', () => toc.scrollIntoView({ behavior: 'smooth', block: 'start' }));
   })();
 
+  // ========== Reading Progress Bar ==========
   (function readingProgress() {
     const bar = document.getElementById('reading-progress-bar');
     if (!bar) return;
@@ -110,6 +139,197 @@ layout: default
     update();
   })();
 
+  // ========== Bookmark Feature ==========
+  (function bookmarkFeature() {
+    const bookmarkBtn = document.getElementById('bookmark-btn');
+    const currentPage = window.location.pathname;
+    const pageTitle = document.querySelector('.essay-title').textContent;
+    const storageKey = 'agora-bookmarks';
+
+    function getBookmarks() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveBookmarks(bookmarks) {
+      localStorage.setItem(storageKey, JSON.stringify(bookmarks));
+    }
+
+    function isBookmarked() {
+      return getBookmarks().some(b => b.path === currentPage);
+    }
+
+    function updateButton() {
+      if (isBookmarked()) {
+        bookmarkBtn.classList.add('bookmarked');
+        bookmarkBtn.querySelector('.bookmark-text').textContent = '저장됨';
+      } else {
+        bookmarkBtn.classList.remove('bookmarked');
+        bookmarkBtn.querySelector('.bookmark-text').textContent = '저장';
+      }
+    }
+
+    bookmarkBtn.addEventListener('click', () => {
+      let bookmarks = getBookmarks();
+
+      if (isBookmarked()) {
+        bookmarks = bookmarks.filter(b => b.path !== currentPage);
+        saveBookmarks(bookmarks);
+        alert('북마크가 제거되었습니다.');
+      } else {
+        bookmarks.push({
+          path: currentPage,
+          title: pageTitle,
+          timestamp: Date.now()
+        });
+        saveBookmarks(bookmarks);
+        alert('북마크에 저장되었습니다!');
+      }
+
+      updateButton();
+    });
+
+    updateButton();
+  })();
+
+  // ========== Text Highlight Feature ==========
+  (function highlightFeature() {
+    const popup = document.getElementById('highlight-popup');
+    const highlightBtn = document.getElementById('highlight-btn');
+    const removeHighlightBtn = document.getElementById('remove-highlight-btn');
+    const content = document.getElementById('essay-content');
+    const storageKey = 'agora-highlights-' + window.location.pathname;
+
+    let currentSelection = null;
+
+    function getHighlights() {
+      try {
+        return JSON.parse(localStorage.getItem(storageKey)) || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function saveHighlights(highlights) {
+      localStorage.setItem(storageKey, JSON.stringify(highlights));
+      displaySavedHighlights();
+    }
+
+    function displaySavedHighlights() {
+      const highlights = getHighlights();
+      const section = document.getElementById('highlights-section');
+      const list = document.getElementById('highlights-list');
+
+      if (highlights.length === 0) {
+        section.style.display = 'none';
+        return;
+      }
+
+      section.style.display = 'block';
+      list.innerHTML = '';
+
+      highlights.forEach((hl, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <div class="saved-highlight">
+            <p class="highlight-text">"${hl.text}"</p>
+            <button class="remove-saved-highlight" data-index="${index}">삭제</button>
+          </div>
+        `;
+        list.appendChild(li);
+      });
+
+      // Add delete handlers
+      list.querySelectorAll('.remove-saved-highlight').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const index = parseInt(e.target.dataset.index);
+          let highlights = getHighlights();
+          highlights.splice(index, 1);
+          saveHighlights(highlights);
+        });
+      });
+    }
+
+    // Show/hide popup on text selection
+    document.addEventListener('mouseup', (e) => {
+      const selection = window.getSelection();
+      const selectedText = selection.toString().trim();
+
+      if (selectedText && content.contains(selection.anchorNode)) {
+        currentSelection = {
+          text: selectedText,
+          range: selection.getRangeAt(0).cloneRange()
+        };
+
+        const rect = selection.getRangeAt(0).getBoundingClientRect();
+        popup.style.display = 'flex';
+        popup.style.top = (rect.top + window.scrollY - 50) + 'px';
+        popup.style.left = (rect.left + rect.width / 2) + 'px';
+
+        // Check if already highlighted
+        const parent = selection.anchorNode.parentElement;
+        if (parent && parent.classList.contains('user-highlight')) {
+          highlightBtn.style.display = 'none';
+          removeHighlightBtn.style.display = 'block';
+        } else {
+          highlightBtn.style.display = 'block';
+          removeHighlightBtn.style.display = 'none';
+        }
+      } else if (!popup.contains(e.target)) {
+        popup.style.display = 'none';
+      }
+    });
+
+    // Add highlight
+    highlightBtn.addEventListener('click', () => {
+      if (!currentSelection) return;
+
+      const highlights = getHighlights();
+      highlights.push({
+        text: currentSelection.text,
+        timestamp: Date.now()
+      });
+      saveHighlights(highlights);
+
+      // Apply visual highlight
+      try {
+        const range = currentSelection.range;
+        const span = document.createElement('mark');
+        span.className = 'user-highlight';
+        range.surroundContents(span);
+      } catch (e) {
+        console.error('Could not apply highlight:', e);
+      }
+
+      popup.style.display = 'none';
+      window.getSelection().removeAllRanges();
+    });
+
+    // Remove highlight
+    removeHighlightBtn.addEventListener('click', () => {
+      const selection = window.getSelection();
+      const parent = selection.anchorNode.parentElement;
+
+      if (parent && parent.classList.contains('user-highlight')) {
+        const text = parent.textContent;
+        parent.replaceWith(document.createTextNode(text));
+
+        let highlights = getHighlights();
+        highlights = highlights.filter(h => h.text !== text);
+        saveHighlights(highlights);
+      }
+
+      popup.style.display = 'none';
+      window.getSelection().removeAllRanges();
+    });
+
+    displaySavedHighlights();
+  })();
+
+  // ========== Share Functions ==========
   function copyLink() {
     const url = window.location.href;
     navigator.clipboard.writeText(url).then(() => {
@@ -118,7 +338,24 @@ layout: default
   }
 
   function shareKakao() {
-    // Kakao SDK integration would go here
     alert('카카오톡 공유 기능은 준비 중입니다.');
   }
+
+  // ========== Giscus Theme Sync ==========
+  (function syncGiscusTheme() {
+    const observer = new MutationObserver(() => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (iframe) {
+        iframe.contentWindow.postMessage({
+          giscus: { setConfig: { theme: theme === 'dark' ? 'dark' : 'light' } }
+        }, 'https://giscus.app');
+      }
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  })();
 </script>
