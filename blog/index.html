@@ -6,6 +6,111 @@ title: 홈
 <div class="home">
   <section class="hero">
     <h1 class="hero-title">아고라</h1>
-    <p class="hero-subtitle">실리콘밸리 통찰을 한국 제품 리더에게</p>
+    <p class="hero-subtitle">Y Combinator와 Paul Graham의 통찰을 한국어로, 실행형으로.</p>
+    <div class="hero-cta">
+      <a class="btn primary" href="{{ '/essays/' | relative_url }}">에세이 읽기</a>
+      <a class="btn ghost" href="{{ '/chat/' | relative_url }}">AI 코치에게 묻기</a>
+    </div>
+  </section>
+
+  <section class="intro-grid">
+    <article class="info-card">
+      <h3>Y Combinator란?</h3>
+      <p>2005년 시작된 실리콘밸리 액셀러레이터. Airbnb, Dropbox, Stripe, Reddit 등 4,000개 이상의 스타트업을 성장시킨 운영·투자 시스템을 갖추고 있습니다.</p>
+    </article>
+    <article class="info-card">
+      <h3>Paul Graham은 누구인가?</h3>
+      <p>YC 공동창업자이자 연쇄 창업자. 스타트업, 기술, 제품, 창업자의 태도에 대해 200+편의 에세이를 남겨 실전 철학을 제시했습니다.</p>
+    </article>
+    <article class="info-card">
+      <h3>PG 에세이가 중요한 이유</h3>
+      <ul>
+        <li>사람들이 원하는 것을 만드는 법</li>
+        <li>빠른 출시·피드백·개선의 루프</li>
+        <li>작은 팀의 집요함과 생존 전략</li>
+        <li>시장/타이밍을 읽는 사고법</li>
+      </ul>
+    </article>
+    <article class="info-card">
+      <h3>왜 지금 우리에게 필요한가?</h3>
+      <p>한국 초기 창업자·프리랜서에게 맞는 언어로 번역/요약해 즉시 실행 가능한 체크리스트, 템플릿, AI 코치와 함께 제공합니다.</p>
+    </article>
+  </section>
+
+  <section class="video-section">
+    <div class="section-header">
+      <div>
+        <p class="eyebrow">영상으로 보는 YC</p>
+        <h2>YC 철학을 짧게 훑어보기</h2>
+        <p class="muted">아래 영상은 YC가 강조하는 사용자 집착, 빠른 실행, 튼튼한 팀을 다룹니다.</p>
+      </div>
+      <div class="video-cta">
+        <a class="btn ghost" href="https://www.youtube.com/watch?v=OQ0JEP8gGYs" target="_blank" rel="noopener">Why Startups Condense in America →</a>
+        <a class="btn ghost" href="https://www.youtube.com/watch?v=EiRnSjcVIqk" target="_blank" rel="noopener">YC Startup School Highlights →</a>
+      </div>
+    </div>
+    <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=OQ0JEP8gGYs" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/OQ0JEP8gGYs/maxresdefault.jpg" alt="Why Startups Condense in America" loading="lazy" />
+        <div class="video-meta">
+          <p class="eyebrow">Youtube</p>
+          <h3>Why Startups Condense in America</h3>
+          <p class="muted">YC가 탄생한 배경과 창업자가 모이는 이유</p>
+        </div>
+      </a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=EiRnSjcVIqk" target="_blank" rel="noopener">
+        <img src="https://img.youtube.com/vi/EiRnSjcVIqk/maxresdefault.jpg" alt="YC Startup School Highlights" loading="lazy" />
+        <div class="video-meta">
+          <p class="eyebrow">Youtube</p>
+          <h3>YC Startup School Highlights</h3>
+          <p class="muted">사용자 집착, 빠른 출시, 생존 전략 핵심 정리</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="why-section">
+    <div>
+      <p class="eyebrow">PG 에세이에서 뽑은 핵심 인사이트</p>
+      <ul class="insight-list">
+        <li><strong>사용자 집착:</strong> 문제 정의→가설→빠른 출시→생생한 피드백</li>
+        <li><strong>생존 우선:</strong> 지출 최소화, 라면수프 모드, 수익/성장으로 협상력 확보</li>
+        <li><strong>집요한 실행:</strong> 매주 개선/선적, 작은 팀의 속도로 신뢰 확보</li>
+        <li><strong>좋은 시장/타이밍:</strong> “왜 지금인가”를 설명하는 트렌드·파도 찾기</li>
+        <li><strong>단순한 스토리:</strong> 한 줄로 문제/해결/대상 정의, 불필요한 기능 덜어내기</li>
+      </ul>
+    </div>
+    <div class="cta-card">
+      <h3>지금 바로 시작하기</h3>
+      <p class="muted">한국어 번역/요약, 실행 체크리스트, AI 코치까지 한 곳에서.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="{{ '/essays/' | relative_url }}">에세이 둘러보기</a>
+        <a class="btn ghost" href="{{ '/chat/' | relative_url }}">AI 코치 열기</a>
+      </div>
+    </div>
   </section>
 </div>
+
+<style>
+  .hero-cta { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
+  .btn.primary { background: var(--color-text); color: var(--color-bg); padding: 0.65rem 1.1rem; border-radius: 999px; display: inline-flex; gap: 0.4rem; align-items: center; font-weight: 700; text-decoration: none; }
+  .btn.ghost { border: 1px solid var(--color-border); padding: 0.6rem 1rem; border-radius: 999px; text-decoration: none; color: var(--color-text); }
+  .intro-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin: 2rem 0 3rem; }
+  .info-card { border: 1px solid var(--color-border); border-radius: 12px; padding: 1.25rem; background: var(--color-surface); }
+  .info-card h3 { margin: 0 0 0.5rem; font-size: 1.2rem; }
+  .info-card ul { margin: 0.5rem 0 0; padding-left: 1.2rem; }
+  .video-section { border-top: 1px solid var(--color-border); padding-top: 2rem; margin-top: 2rem; }
+  .video-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 1rem; }
+  .video-card { border: 1px solid var(--color-border); border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit; background: var(--color-bg); display: flex; flex-direction: column; }
+  .video-card img { width: 100%; height: 180px; object-fit: cover; }
+  .video-meta { padding: 0.75rem 1rem 1rem; }
+  .video-meta h3 { margin: 0.25rem 0; font-size: 1.1rem; }
+  .video-cta { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+  .why-section { display: grid; gap: 1rem; grid-template-columns: 2fr 1fr; margin-top: 2.5rem; align-items: start; }
+  .insight-list { margin: 0.5rem 0 0; padding-left: 1.2rem; line-height: 1.6; }
+  .cta-card { border: 1px solid var(--color-border); border-radius: 12px; padding: 1.25rem; background: var(--color-surface); }
+  .cta-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+  @media (max-width: 768px) {
+    .why-section { grid-template-columns: 1fr; }
+  }
+</style>
