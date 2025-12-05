@@ -10,6 +10,30 @@ permalink: /chat/
 </section>
 
 <section class="chat-box">
+  <div class="context-form">
+    <h3>내 상황(선택)</h3>
+    <div class="context-grid">
+      <label>업종/아이템
+        <input id="ctx-type" type="text" placeholder="예: B2B SaaS, 커뮤니티, 프리랜서 디자인" />
+      </label>
+      <label>스테이지
+        <select id="ctx-stage">
+          <option value="">선택 안 함</option>
+          <option value="아이디어">아이디어</option>
+          <option value="MVP/베타">MVP/베타</option>
+          <option value="초기 유료 고객 확보">초기 유료 고객 확보</option>
+          <option value="성장 단계">성장 단계</option>
+        </select>
+      </label>
+      <label>핵심 지표/목표
+        <input id="ctx-metric" type="text" placeholder="예: MRR 1천만, DAU 1만, 리텐션 30%" />
+      </label>
+      <label>이번 주 목표
+        <input id="ctx-goal" type="text" placeholder="예: 유료 전환 5건, 온보딩 개선" />
+      </label>
+    </div>
+  </div>
+
   <div id="chat-log" class="chat-log" aria-live="polite"></div>
   <form id="chat-form" class="chat-form">
     <input id="chat-input" type="text" placeholder="질문을 입력하세요 (예: B2B SaaS 초기에 무엇을 먼저 검증해야 할까?)" required />
@@ -21,6 +45,9 @@ permalink: /chat/
 <style>
   .chat-hero { max-width: 720px; margin: 0 auto 1.5rem; }
   .chat-box { max-width: 720px; margin: 0 auto; border: 1px solid var(--color-border); border-radius: 12px; padding: 1rem; background: var(--color-surface); }
+  .context-form { margin-bottom: 1rem; }
+  .context-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; }
+  .context-form input, .context-form select { width: 100%; padding: 0.6rem 0.75rem; border: 1px solid var(--color-border); border-radius: 8px; }
   .chat-log { min-height: 240px; max-height: 480px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.75rem; padding: 0.5rem; }
   .bubble { padding: 0.75rem 1rem; border-radius: 10px; line-height: 1.5; }
   .user { background: var(--color-primary-soft); color: var(--color-text); align-self: flex-end; }
@@ -36,6 +63,39 @@ permalink: /chat/
     const log = document.getElementById('chat-log');
     const form = document.getElementById('chat-form');
     const input = document.getElementById('chat-input');
+    const ctxType = document.getElementById('ctx-type');
+    const ctxStage = document.getElementById('ctx-stage');
+    const ctxMetric = document.getElementById('ctx-metric');
+    const ctxGoal = document.getElementById('ctx-goal');
+
+    // Restore context from localStorage
+    const ctxKey = 'agora-chat-context';
+    try {
+      const saved = JSON.parse(localStorage.getItem(ctxKey)) || {};
+      if (ctxType) ctxType.value = saved.type || '';
+      if (ctxStage) ctxStage.value = saved.stage || '';
+      if (ctxMetric) ctxMetric.value = saved.metric || '';
+      if (ctxGoal) ctxGoal.value = saved.goal || '';
+    } catch {}
+
+    function getContextText() {
+      const parts = [];
+      if (ctxType?.value) parts.push(`업종/아이템: ${ctxType.value}`);
+      if (ctxStage?.value) parts.push(`스테이지: ${ctxStage.value}`);
+      if (ctxMetric?.value) parts.push(`핵심 지표: ${ctxMetric.value}`);
+      if (ctxGoal?.value) parts.push(`목표: ${ctxGoal.value}`);
+      return parts.length ? `사용자 컨텍스트 | ${parts.join(" | ")}` : '';
+    }
+
+    function saveContext() {
+      const payload = {
+        type: ctxType?.value || '',
+        stage: ctxStage?.value || '',
+        metric: ctxMetric?.value || '',
+        goal: ctxGoal?.value || '',
+      };
+      localStorage.setItem(ctxKey, JSON.stringify(payload));
+    }
 
     function addBubble(text, role) {
       const div = document.createElement('div');
@@ -49,6 +109,9 @@ permalink: /chat/
       e.preventDefault();
       const question = input.value.trim();
       if (!question) return;
+      saveContext();
+      const context = getContextText();
+      const payload = context ? `${context}\n질문: ${question}` : question;
       addBubble(question, 'user');
       input.value = '';
 
@@ -56,7 +119,7 @@ permalink: /chat/
         const res = await fetch('/api/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ messages: [{ role: 'user', content: question }] })
+          body: JSON.stringify({ messages: [{ role: 'user', content: payload }] })
         });
         if (!res.ok) throw new Error('API error');
         const data = await res.json();

@@ -108,9 +108,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         { role: "system", content: system },
         {
           role: "system",
-          content: `컨텍스트를 참고해 한국어로 간결하게 답변하세요. 실행 항목(2~3개), 근거(에세이명/철학) 포함. 확정할 수 없는 법/세무/의료는 상담 권고.
-          
-          컨텍스트:
+          content: `컨텍스트를 참고해 한국어로 간결하게 답변하세요. 포맷을 반드시 지키세요:
+- 요약: 2줄 이내
+- 실행: 번호 목록 2~3개 (무엇/언제/어떻게, 구체적 행동)
+- 근거: 관련 에세이명 또는 철학 번호
+- 리스크/확인: 추가로 물어볼 1~2개 질문 또는 전제
+규칙: 과도한 낙관/모호한 표현 금지. 법률·세무·의료 확정 자문 금지(전문가 상담 권고). 숫자나 추정은 "가정"으로 명시. 컨텍스트에 없는 내용은 추측하지 말고 질문을 던지세요.
+
+컨텍스트:
 ${contextText}`,
         },
         { role: "user", content: userMessage },
