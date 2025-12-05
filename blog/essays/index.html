@@ -37,7 +37,7 @@ permalink: /essays/
           {% assign cleaned = trimmed | strip_html | replace: "요약 (Summary)", "" | strip %}
           {% assign prefix = cleaned | slice: 0, 2 %}
           {% if prefix == "🎯" %}
-            {% assign summary_line = cleaned | truncate: 150 %}
+            {% assign summary_line = cleaned | split: "✨" | first | strip | truncate: 150 %}
             {% break %}
           {% elsif prefix == "✨" %}
             {% continue %}
