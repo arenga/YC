@@ -9,6 +9,7 @@ lang: ko
 markdown: kramdown
 permalink: /:categories/:title/
 timezone: Asia/Seoul
+excerpt_separator: "<!-- excerpt -->"
 
 # Collections
 collections:
