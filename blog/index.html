@@ -54,9 +54,6 @@ title: 홈
           <span class="category">{{ site.category_names[essay.category] | default: essay.category }}</span>
           <span class="difficulty">{{ site.difficulty_levels[essay.difficulty] | default: essay.difficulty }}</span>
         </div>
-        {% if essay.excerpt %}
-        <p class="essay-card-excerpt">{{ essay.excerpt | strip_html | truncate: 150 }}</p>
-        {% endif %}
       </article>
       {% endfor %}
     </div>
