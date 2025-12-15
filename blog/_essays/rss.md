@@ -29,7 +29,7 @@ RSS 리더(Feedly, Inoreader)를 설치하고 좋아하는 블로그 5개를 구
 
 ## 한국어 번역 (Korean Translation)
 
-Aaron Swartz는 에세이 페이지의 스크랩 피드를 만들었습니다.
+Aaron Swartz가 에세이 페이지의 RSS 피드를 만들었습니다.
 
 ---
 

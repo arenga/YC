@@ -29,7 +29,11 @@ Paul Graham이 Viaweb을 만들 때 Lisp을 선택한 이유: **웹 애플리케
 
 ## 한국어 번역 (Korean Translation)
 
-Beating the Averages에 대한 링크가 slashdot에 게시된 후 일부 독자들은 Viaweb에서 Lisp를 사용하여 얻은 구체적인 기술적 이점에 대해 더 자세히 듣고 싶어했습니다.관심 있는 분들을 위해 제가 2001년 4월 매사추세츠 주 케임브리지에 있는 BBN 연구소에서 했던 강연에서 발췌한 내용을 소개합니다.BBN Talk Excerpts (ASCII)
+"Beating the Averages"라는 글의 링크가 slashdot에 올라간 후, 몇몇 독자들이 Viaweb에서 Lisp를 쓰면서 얻은 구체적인 기술적 장점을 더 자세히 듣고 싶어 했습니다.
+
+관심 있는 분들을 위해, 2001년 4월 매사추세츠주 케임브리지에 있는 BBN 연구소에서 했던 강연 내용 일부를 여기 소개합니다.
+
+BBN Talk Excerpts (ASCII)
 
 ---
 

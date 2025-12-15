@@ -29,7 +29,40 @@ url_original: "https://paulgraham.com/fix.html"
 
 ## 한국어 번역 (Korean Translation)
 
-Kevin Kelleher는 프로그래밍 언어를 비교하는 흥미로운 방법을 제안했습니다. 즉, 해결되는 문제의 관점에서 각 언어를 설명하는 것입니다.놀라운 점은 이러한 방식으로 언어를 얼마나 많이, 얼마나 잘 설명할 수 있는지입니다.Algol: 어셈블리 언어가 너무 저수준입니다. Pascal: Algol에는 데이터 유형이 충분하지 않습니다. Modula: Pascal은 시스템 프로그래밍에 너무 약합니다.Simula: Algol은 시뮬레이션에 충분하지 않습니다.Smalltalk: Simula의 모든 것이 객체는 아닙니다.Fortran: 어셈블리 언어가 너무 낮은 수준입니다.Cobol: Fortran은 무섭습니다.PL/1: Fortran에는 충분한 데이터 유형이 없습니다.Ada: 모든 기존 언어에는 뭔가가 빠져 있습니다.기본: Fortran은 무섭습니다.APL: Fortran은 배열을 조작하는 데 충분하지 않습니다.J: APL에는 자체 문자 집합이 필요합니다.C: 어셈블리 언어수준이 너무 낮습니다.C++: C는 수준이 너무 낮습니다.Java: C++는 문제입니다.그리고 Microsoft는 우리를 무너뜨릴 것입니다.C#: Java는 Sun에 의해 제어됩니다.Lisp: Turing Machines는 계산을 설명하는 어색한 방법입니다.Scheme: MacLisp는 kludge입니다.T: Scheme에는 라이브러리가 없습니다.Common Lisp: Lisp의 방언이 너무 많습니다.Dylan: Scheme에는 라이브러리가 없고 Lisp 구문은 무섭습니다.Perl: 쉘 스크립트/awk/sed는 프로그래밍 언어처럼 충분하지 않습니다. Python: Perl은 복잡합니다.Ruby: Perl은 복잡하고 Lisp 구문은 무섭습니다.Prolog: 프로그래밍은 논리처럼 충분하지 않습니다.일본어 번역프랑스어 번역포르투갈어 번역
+Kevin Kelleher는 프로그래밍 언어를 비교하는 흥미로운 방법을 제안했습니다. 각 언어를 "어떤 문제를 해결하는가"의 관점에서 설명하는 것입니다.
+
+놀라운 점은, 이런 방식으로 설명할 수 있는 언어가 엄청나게 많고, 설명도 정확하다는 것입니다.
+
+**Algol**: 어셈블리 언어는 너무 저수준입니다.
+**Pascal**: Algol에는 데이터 타입이 충분하지 않습니다.
+**Modula**: Pascal은 시스템 프로그래밍에 너무 약합니다.
+**Simula**: Algol은 시뮬레이션에 적합하지 않습니다.
+**Smalltalk**: Simula에서는 모든 것이 객체가 아닙니다.
+
+**Fortran**: 어셈블리 언어는 너무 저수준입니다.
+**Cobol**: Fortran은 무섭습니다.
+**PL/1**: Fortran에는 데이터 타입이 충분하지 않습니다.
+**Ada**: 기존 언어들에는 뭔가가 빠져 있습니다.
+**Basic**: Fortran은 무섭습니다.
+**APL**: Fortran은 배열 조작에 적합하지 않습니다.
+**J**: APL은 전용 문자 집합이 필요합니다.
+
+**C**: 어셈블리 언어는 너무 저수준입니다.
+**C++**: C는 너무 저수준입니다.
+**Java**: C++는 엉망입니다. 그리고 Microsoft가 우리를 짓밟을 것입니다.
+**C#**: Java는 Sun이 통제합니다.
+
+**Lisp**: 튜링 머신은 계산을 설명하기에 어색한 방법입니다.
+**Scheme**: MacLisp는 엉망입니다.
+**T**: Scheme에는 라이브러리가 없습니다.
+**Common Lisp**: Lisp의 방언이 너무 많습니다.
+**Dylan**: Scheme에는 라이브러리가 없고, Lisp 구문은 무섭습니다.
+
+**Perl**: 쉘 스크립트/awk/sed는 프로그래밍 언어로 충분하지 않습니다.
+**Python**: Perl은 엉망입니다.
+**Ruby**: Perl은 엉망이고, Lisp 구문은 무섭습니다.
+
+**Prolog**: 프로그래밍은 논리만으로 충분하지 않습니다.
 
 ---
 
